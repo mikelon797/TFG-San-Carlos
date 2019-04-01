@@ -1,0 +1,9 @@
+{
+  "name": "IntroToCordova",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.1.3"
+  }
+}

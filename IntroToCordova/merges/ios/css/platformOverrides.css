@@ -1,0 +1,9 @@
+﻿.device-platform {
+    border-radius: 4px;
+    background-color: #4FFDFF;
+    color: #5B5B5B;
+    line-height: 32px;
+    font-size: 18px;
+    margin: 10px;
+    text-transform: none;
+}
