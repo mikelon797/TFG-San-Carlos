@@ -6,19 +6,26 @@
     </div>
 
     <form>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        <div ng-repeat="pregunta in preguntas">
+            <div class="card border-primary " style="">
+                <div class="card-body text-primary">
+                    <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">{{pregunta.titulo}}</p>
+                </div>
             </div>
-            <select class="form-control">
-                <option selected="">Perfil</option>
-                <option>Paciente</option>
-                <option>Familiar</option>
-            </select>
+            <div class="form-group input-group">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-question"></i> </span>
+                </div>
+                <select class="form-control">
+                    <option selected="">Seleccione una opción</option>
+                    <option ng-repeat="opcion in pregunta.opciones">{{opcion}}</option>
+                </select>
+            </div>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block"> Enviar </button>
-        </div> 
+        </div>
     </form>
 
 
