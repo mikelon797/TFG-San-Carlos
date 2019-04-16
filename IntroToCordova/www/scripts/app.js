@@ -1,4 +1,5 @@
-﻿(function(){
+﻿
+(function () {
     
     var app = angular.module("tfgSanCarlos", ["ngRoute"]);
     

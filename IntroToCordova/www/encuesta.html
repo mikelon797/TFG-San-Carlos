@@ -1,15 +1,15 @@
-﻿<div>
+﻿    <div>
 
-    <div class="card text-white bg-info mb-3" style=" position:absolute center">
-        <div class="card-header text-center">Encuesta sobre su experiencia</div>
+        <div class="card text-white bg-info mb-3" style=" position:absolute center">
+            <div class="card-header text-center">Encuesta sobre su experiencia</div>
         </div>
     </div>
 
     <form>
         <div ng-repeat="pregunta in preguntas">
             <div class="card border-primary " style="">
-                <div class="card-body text-primary">
-                    <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">{{pregunta.titulo}}</p>
+                <div class="card-body text-primary" style="background-color:#cef8ff">
+                    <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">{{pregunta.titulo}}</p>
                 </div>
             </div>
             <div class="form-group input-group">
@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Enviar </button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color:greenyellow"> Enviar </button>
         </div>
     </form>
 
 
-</div>
+
