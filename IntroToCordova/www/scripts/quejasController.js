@@ -9,9 +9,10 @@
             this.titulo = titulo;
             this.opciones = opciones
         }
-        var bloque = function (supertitulo, ...preguntas) {
+        var bloque = function (index,supertitulo, ...preguntas) {
             this.supertitulo = supertitulo;
             this.preguntas = preguntas;
+            this.index = index;
         }
         var p1 = new pregunta("titulo1", "o10", "o20", "otro1");
         var p2 = new pregunta("titulo2", "o11", "o21", "otro2");
@@ -21,10 +22,34 @@
         var q2 = new pregunta("titulo7", "o11", "o21", "otro2");
         var q3 = new pregunta("titulo8", "o12", "o22", "otro3");
 
-        var bloque1 = new bloque("supertitulo1",p1, p2, p3, p4);
-        var bloque2 = new bloque("supertitulo2",q1, q2, q3);
+        var bloque1 = new bloque(1,"supertitulo1",p1, p2, p3, p4);
+        var bloque2 = new bloque(2,"supertitulo2",q1, q2, q3);
         $scope.elementos = [bloque1, bloque2];
 
+        $scope.togglepreguntas = function (index) {
+            console.log(index)
+            var nombreclase = "preguntas" + index;
+            var x = document.getElementsByClassName(nombreclase);
+            for (var i = 0, length = x.length; i < length; i++) {
+                if (x[i].style.display === "none") {
+                    x[i].style.display = "block";
+                } else {
+                    x[i].style.display = "none";
+                }
+            }
+        }
+        $scope.toggleopciones = function (index) {
+            console.log(index)
+            var nombreclase = "opciones" + index;
+            var x = document.getElementsByClassName(nombreclase);
+            for (var i = 0, length = x.length; i < length; i++) {
+                if (x[i].style.display === "none") {
+                    x[i].style.display = "block";
+                } else {
+                    x[i].style.display = "none";
+                }
+            }
+        }
 
     };
 
@@ -33,33 +58,5 @@
 }());
 
 
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    function myFunction2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-        if (!event.target.matches('.dropbtn')) {
-            var x = document.getElementById("op11");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-            
-        }
-    }
+   
 

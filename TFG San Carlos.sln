@@ -34,9 +34,9 @@ Global
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Debug|Windows-x86.ActiveCfg = Debug|Windows-x86
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Debug|Windows-x86.Build.0 = Debug|Windows-x86
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Debug|Windows-x86.Deploy.0 = Debug|Windows-x86
-		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.ActiveCfg = Release|Android
-		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.Build.0 = Release|Android
-		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.Deploy.0 = Release|Android
+		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.ActiveCfg = Debug|Android
+		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.Build.0 = Debug|Android
+		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|Android.Deploy.0 = Debug|Android
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|iOS.ActiveCfg = Release|iOS
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|iOS.Build.0 = Release|iOS
 		{AE07376A-C91F-4546-A6E6-077211BCDE41}.Release|iOS.Deploy.0 = Release|iOS
