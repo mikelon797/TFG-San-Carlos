@@ -1,1 +1,42 @@
 ﻿<h4>Ajustes</h4>
+
+<div class="card border-primary " style="" ng-click="toggleajustes('cuenta')">
+    <div class="card-body text-primary" style="background-color:#cbe3e8">
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Sus Datos</p>
+    </div>
+</div>
+
+<div class="ajustescuenta" style="display:none">
+    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card-body text-primary" style="background-color:#ffffff">
+            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Usuario:{{User}}</p>
+        </div>
+    </div>
+    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card-body text-primary" style="background-color:#ffffff">
+            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Situación:{{Paciente}}</p>
+        </div>
+    </div>
+    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card-body text-primary" style="background-color:#ffffff">
+            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Lugar:{{Urgencias}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="card border-primary " style="" ng-click="toggleajustes('logout')">
+    <div class="card-body text-primary" style="background-color:#cbe3e8">
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Cerrar Sesión</p>
+    </div>
+</div>
+
+<div class="ajusteslogout" style="display:none">
+    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card-body text-primary" style="background-color:#ffffff">
+            <p class="card-text" style="color:black; font-size:smaller; margin:0px; justify-content:flex-end; padding:5px">Esta usted seguro que quiere salir?</p>
+            <button type="button" onclick="location.href='index.html#!/login';" class="btn btn-success">Sí</button>
+            <button type="button" ng-click="toggleajustes('logout')" class="btn btn-danger">No</button>
+        </div>
+    </div>
+</div>
+

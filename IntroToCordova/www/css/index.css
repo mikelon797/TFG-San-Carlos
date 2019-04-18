@@ -95,3 +95,9 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }*/
+
+#boton-enviar {
+    background-color: greenyellow;
+    margin-left:15px;
+    margin-right:15px;
+}

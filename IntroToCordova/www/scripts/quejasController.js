@@ -39,7 +39,7 @@
             }
         }
         $scope.toggleopciones = function (index) {
-            console.log(index)
+            console.log(index);
             var nombreclase = "opciones" + index;
             var x = document.getElementsByClassName(nombreclase);
             for (var i = 0, length = x.length; i < length; i++) {
