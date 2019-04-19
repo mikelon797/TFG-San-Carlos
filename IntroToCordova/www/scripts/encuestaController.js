@@ -15,15 +15,15 @@
         var p5 = new pregunta("titulo5", "o13", "o23", "o33", "o43");
         var p6 = new pregunta("titulo4", "o13", "o23", "o33", "o43");
 
-
-        
         $scope.preguntas = [p1, p2, p3, p4,p5,p6];
 
         $scope.sendEncuesta = function () {
             window.location.href = "index.html#!/main";
-            alert("Ha sido enviada su encuesta,muchas gracias");
-
+            $('modalId').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         }
+
         $scope.toggleConf = function () {
             var x = document.getElementsByClassName('confirmarencuesta');
             for (var i = 0, length = x.length; i < length; i++) {

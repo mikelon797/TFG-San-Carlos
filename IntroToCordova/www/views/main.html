@@ -1,9 +1,50 @@
-﻿<canvas style="height:30%"></canvas>
-<div style="text-align:center;">
-    <div style="display: inline-block;">
-        <h1>Página Principal</h1>
-        <p>Aqui tengo pensado poner botones/logos para los diferentes apartados de la aplicación</p>
+﻿ 
+<div style="text-align: center;">
+    <div style="display: inline-block; max-width: 90%; margin-bottom:50%">
+        <h4 class="card-title mt-3 text-center">Bienvenido</h4>
+        <div class="card border-primary " style="">
+            <div class="card-body text-primary">
+                <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">Aquí podrá recibir información, realizar encuestas y solicitar asistencia, en el caso de hospitalización y realizar encuestas sobre su experiencia en urgencias.</p>
+            </div>
+        </div>
     </div>
-
 </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4" style="text-align: center;">
+            <h5 style="display: inline-block;">Quejas</h5>
+        </div>
+        <div class="col-4" style="text-align: center;">
+            <h5 style="display: inline-block;" >Encuesta</h5>
+        </div>
+        <div class="col-4" style="text-align: center;">
+            <h5 style="display: inline-block;" >Ajustes</h5>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-4" >
+            <div class="thumbnail">
+                <div class="img-wrapper">
+                    <img ng-click="redirect('1')" src="http://placehold.it/400x400" width="90" height="90">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="thumbnail">
+                <div class="img-wrapper">
+                    <img ng-click="redirect('2')" src="http://placehold.it/400x400" width="90" height="90">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="thumbnail">
+                <div class="img-wrapper">
+                    <img ng-click="redirect('3')" src="http://placehold.it/400x400" width="90" height="90" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

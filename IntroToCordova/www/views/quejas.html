@@ -36,12 +36,12 @@
 
     </div>
     <div class="form-group">
-        <button id="#boton-enviar" type="submit" ng-click="toggleConf()" class="btn btn-primary btn-block"
+        <button id="#boton-enviar" type="submit"  data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary btn-block"
                 style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; margin-top: 10px ;color:white">
             Enviar
         </button>
     </div>
-    <div class="confirmarqueja" style="display:none">
+    <!--<div class="confirmarqueja" style="display:none">
         <div class="card border-primary " style="margin:10px;  text-align: center;">
             <div class="card-body text-primary" style="background-color:#ffffff; display: inline-block; padding:0;">
                 <p class="card-text" style="color:black; font-size:smaller; margin:5px; justify-content:flex-end; padding:5px">¿Esta usted seguro que quiere enviar la queja?</p>
@@ -49,8 +49,23 @@
                 <button type="button" ng-click="toggleConf()" class="btn btn-danger">No</button>
             </div>
         </div>
-    </div>
+    </div>-->
 </form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea enviar esta queja?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" ng-click="sendQueja()">Si</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <canvas></canvas>
 
 

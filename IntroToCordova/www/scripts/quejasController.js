@@ -67,11 +67,12 @@
                     x[i].style.display = "none";
                 }
             }
-            
         }
         $scope.sendQueja = function () {
             window.location.href = "index.html#!/main";
-            alert("Ha sido enviada su queja, lo solucionaremos lo más pronto posible" );
+            $('modalId').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         }
 
         $scope.toggleConf = function () {
