@@ -9,9 +9,14 @@
             var Perfil = $("#Perfil").val();
             var Apellido = $("#Apellido").val();
             var Hab = $("#Hab").val();
+            var Aux = $("#Aux").val();
             localStorage.setItem('signedIn', 'Yes');
-            console.log(localStorage.getItem('signedIn'));
-            console.log(Perfil + Area + Apellido + Hab);
+            localStorage.setItem('Perfil', Perfil);
+            localStorage.setItem('Area', Area);
+            localStorage.setItem('Apellido', Apellido);
+            localStorage.setItem('Hab', Hab);
+            localStorage.setItem('Aux', Aux);
+            window.location.href = "index.html#!/main";
         };
 
     };

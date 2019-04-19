@@ -6,20 +6,24 @@
     app.config(function($routeProvider){
         $routeProvider
             .when("/login", {
-                templateUrl: "login.html",
+                templateUrl: "./views/login.html",
                 controller: "loginController"
             })
             .when("/ajustes", {
-                templateUrl: "ajustes.html",
+                templateUrl: "./views/ajustes.html",
                 controller: "ajustesController"
             })
             .when("/quejas", {
-                templateUrl: "quejas.html",
+                templateUrl: "./views/quejas.html",
                 controller: "quejasController"
             })
             .when("/encuesta", {
-                templateUrl: "encuesta.html",
+                templateUrl: "./views/encuesta.html",
                 controller: "encuestaController"
+            })
+            .when("/main", {
+                templateUrl: "./views/main.html",
+                controller: "mainController"
             })
             .otherwise({redirectTo:"/login"});
     });

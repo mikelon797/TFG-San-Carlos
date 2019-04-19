@@ -4,27 +4,32 @@
 
     var quejasController = function ($scope) {
 
-        var pregunta = function (titulo, ...opciones) {
+        var pregunta = function (titulo,id, ...opciones) {
             
             this.titulo = titulo;
-            this.opciones = opciones
+            this.opciones = opciones;
+            this.id=id;
         }
         var bloque = function (index,supertitulo, ...preguntas) {
             this.supertitulo = supertitulo;
             this.preguntas = preguntas;
             this.index = index;
         }
-        var p1 = new pregunta("titulo1", "o10", "o20", "otro1");
-        var p2 = new pregunta("titulo2", "o11", "o21", "otro2");
-        var p3 = new pregunta("titulo3", "o12", "o22", "otro3");
-        var p4 = new pregunta("titulo4", "o13", "o23", "otro4");
-        var q1 = new pregunta("titulo6", "o10", "o20", "otro1");
-        var q2 = new pregunta("titulo7", "o11", "o21", "otro2");
-        var q3 = new pregunta("titulo8", "o12", "o22", "otro3");
+        var a1 = new pregunta("titulo1","11", "o10", "o20", "Otro");
+        var a2 = new pregunta("titulo2", "12", "o11", "o21", "Otro");
+        var a3 = new pregunta("titulo3", "13", "o12", "o22", "Otro");
+        var i1 = new pregunta("titulo6", "21", "o10", "o20", "Otro");
+        var i2 = new pregunta("titulo7", "22", "o11", "o21", "Otro");
+        var i3 = new pregunta("titulo8", "23", "o12", "o22", "Otro");
+        var c1 = new pregunta("titulo6", "31", "o10", "o20", "Otro");
+        var c2 = new pregunta("titulo7", "32", "o11", "o21", "Otro");
+        var c3 = new pregunta("titulo8", "33", "o12", "o22", "Otro");
 
-        var bloque1 = new bloque(1,"supertitulo1",p1, p2, p3, p4);
-        var bloque2 = new bloque(2,"supertitulo2",q1, q2, q3);
-        $scope.elementos = [bloque1, bloque2];
+        var bloque1 = new bloque(1,"Atención",a1, a2, a3);
+        var bloque2 = new bloque(2, "Instalaciones", i1, i2, i3);
+        var bloque3 = new bloque(3, "Comida", c1, c2, c3);
+
+        $scope.elementos = [bloque1, bloque2,bloque3];
 
         $scope.togglepreguntas = function (index) {
             console.log(index)
@@ -42,6 +47,21 @@
             console.log(index);
             var nombreclase = "opciones" + index;
             var x = document.getElementsByClassName(nombreclase);
+            for (var i = 0, length = x.length; i < length; i++) {
+                if (x[i].style.display === "none") {
+                    x[i].style.display = "block";
+                } else {
+                    x[i].style.display = "none";
+                }
+            }
+        }
+        $scope.sendQueja = function () {
+            alert("Ha sido enviada su queja, lo solucionaremos lo más pronto posible");
+            window.location.href = "index.html#!/main";
+
+        }
+        $scope.toggleConf = function () {
+            var x = document.getElementsByClassName('confirmarqueja');
             for (var i = 0, length = x.length; i < length; i++) {
                 if (x[i].style.display === "none") {
                     x[i].style.display = "block";

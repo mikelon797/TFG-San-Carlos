@@ -18,14 +18,26 @@
         }
 
         $scope.logout = function () {
-            alert("Esta seguro que desea cerrar su cuenta?");
-
+            localStorage.setItem('signedIn', 'No');
+            localStorage.setItem('Perfil', '');
+            localStorage.setItem('Area', '');
+            localStorage.setItem('Apellido', '');
+            localStorage.setItem('Hab', '');
+            localStorage.setItem('Aux', '');
+            window.location.href = "index.html#!/login";
         }
 
         $scope.logInSend = function () {
             var Area = $("#Area").val();
             console.log(Area)
         };
+        $scope.get = function (index) {
+            if (index == 'apellido') return localStorage.getItem('Apellido');
+            else if (index == 'loca') return localStorage.getItem('Area');
+            else if (index == 'perfil') return localStorage.getItem('Perfil');
+
+
+        }
 
     };
 

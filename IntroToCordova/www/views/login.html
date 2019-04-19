@@ -8,7 +8,7 @@
                 </div>
             </div>
             <canvas style="height:0px"></canvas>
-            <form  #form="ngForm" >
+            <form #form="ngForm">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user" style="margin-right:10px"></i> </span>
@@ -18,17 +18,17 @@
                         <option>Paciente</option>
                         <option>Familiar</option>
                     </select>
-                </div> 
+                </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-ambulance" style="margin-right:10px"></i> </span>
                     </div>
-                    <select id="Area" class="form-control">
-                        <option selected="">Area</option>
-                        <option>Hospitalizado</option>
-                        <option>Urgencias</option>
+                    <select id="Area" ng-model="Area" class="form-control">
+                        <option value="">Area</option>
+                        <option value="Hospitalizado">Hospitalizado</option>
+                        <option value="Urgencias">Urgencias</option>
                     </select>
-                </div> 
+                </div>
                 <div class="card border-primary " style="">
                     <div class="card-body text-primary">
                         <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">Utilizamos esta información para autentificar que usted es paciente de nuestro hospital y poder atender a sus necesidades.</p>
@@ -40,21 +40,33 @@
                         <span class="input-group-text"> <i class="fa fa-id-card" style="margin-right:10px"></i> </span>
                     </div>
                     <input id="Apellido" name="" class="form-control" placeholder="Apellido del paciente" type="text">
-                </div> 
-                <div class="form-group input-group">
+                </div>
+                <div ng-if="Area =='Hospitalizado' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
                     </div>
                     <input id="Hab" name="" class="form-control" placeholder="Nº de habitación" type="text">
-                </div> 
+                </div>
+                <div ng-if="Area =='Urgencias' " class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
+                    </div>
+                    <input id="Aux" name="" class="form-control" placeholder="Aux valor" type="text">
+                </div>
+                <div ng-if="Area != 'Urgencias' && Area != 'Hospitalizado' " class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
+                    </div>
+                    <input  name="" class="form-control" placeholder="" type="text">
+                </div>
 
                 <div class="form-group">
                     <button id="#boton-enviar" type="submit" ng-click="logInSend()" class="btn btn-primary btn-block"
-                            style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; color:white"
-                            > Iniciar Sesión 
+                            style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; color:white">
+                        Iniciar Sesión
                     </button>
 
-                </div> 
+                </div>
             </form>
         </article>
     </div> 
