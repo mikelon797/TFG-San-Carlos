@@ -1,41 +1,79 @@
 ﻿<h4>Ajustes</h4>
 
-<div class="card border-primary " style="" ng-click="toggleajustes('cuenta')">
+<div>
+    <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('cuenta')">
+        <div class="card-body text-primary" style="background-color:#cbe3e8">
+            <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Sus Datos</p>
+        </div>
+    </div>
+
+    <div class="ajustescuenta" style="display:none">
+        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+            <div class="card-body text-primary" style="background-color:#ffffff">
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Apellido: {{get('apellido')}}</p>
+            </div>
+        </div>
+        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+            <div class="card-body text-primary" style="background-color:#ffffff">
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Situación: {{get('perfil')}}</p>
+            </div>
+        </div>
+        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+            <div class="card-body text-primary" style="background-color:#ffffff">
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Lugar: {{get('loca')}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('howto')" >
     <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Sus Datos</p>
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">¿Cómo usar la aplicación?</p>
     </div>
 </div>
-
-<div class="ajustescuenta" style="display:none">
-    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
-        <div class="card-body text-primary" style="background-color:#ffffff">
-            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Apellido: {{get('apellido')}}</p>
-        </div>
-    </div>
-    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
-        <div class="card-body text-primary" style="background-color:#ffffff">
-            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Situación: {{get('perfil')}}</p>
-        </div>
-    </div>
-    <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
-        <div class="card-body text-primary" style="background-color:#ffffff">
-            <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Lugar: {{get('loca')}}</p>
-        </div>
-    </div>
-</div>
-
-<div class="card border-primary " style="" ng-click="toggleajustes('logout')">
+<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('noti')">
     <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Cerrar Sesión</p>
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Notificaciones</p>
+    </div>
+</div>
+<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('report')">
+    <div class="card-body text-primary" style="background-color:#cbe3e8">
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Reportar una incidencia</p>
+    </div>
+</div>
+<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('info')">
+    <div class="card-body text-primary" style="background-color:#cbe3e8">
+        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Información de la aplicación</p>
     </div>
 </div>
 
-<div class="ajusteslogout" style="display:none">
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Cerrar Sesión
+</button>
+
+
+<!--<div class="ajusteslogout" style="display:none">
     <div class="card border-primary " style="margin:10px;  text-align: center;">
         <div class="card-body text-primary" style="background-color:#ffffff; display: inline-block; padding:0;">
-            <p class="card-text" style="color:black; font-size:smaller; margin:5px; justify-content:flex-end; padding:5px">Esta usted seguro que quiere salir?</p>
+            <p class="card-text" style="color:black; font-size:smaller; margin:5px; justify-content:flex-end; padding:5px">¿Esta usted seguro que quiere salir?</p>
             <button type="button" ng-click="logout()";" class="btn btn-success">Sí</button>
             <button type="button" ng-click="toggleajustes('logout')" class="btn btn-danger">No</button>
+        </div>
+    </div>
+</div>-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea cerrar sesión?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" ng-click="logout()" >Si</button>
+            </div>
         </div>
     </div>
 </div>

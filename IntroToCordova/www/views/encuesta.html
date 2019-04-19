@@ -1,21 +1,21 @@
-﻿    <div>
+﻿<div>
 
-        <div class="card text-white bg-info mb-3" style=" position:absolute center">
-            <div class="card-header text-center">Encuesta sobre su experiencia</div>
-        </div>
+    <div class="card text-white bg-info mb-3" style=" position:absolute center">
+        <div class="card-header text-center">Encuesta sobre su experiencia</div>
     </div>
+</div>
 
-    <form>
-        <div ng-repeat="pregunta in preguntas">
-            <div class="card border-primary " style="">
-                <div class="card-body text-primary" style="background-color:#cef8ff">
-                    <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">{{pregunta.titulo}}</p>
-                </div>
+<form>
+    <div ng-repeat="pregunta in preguntas">
+        <div class="card border-primary " style="margin-left:5%; margin-right:5%; margin-top: 5px"">
+            <div class="card-body text-primary" style="background-color:#cef8ff">
+                <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">{{pregunta.titulo}}</p>
             </div>
+        </div>
+        <div style="margin-left:7%; margin-right:7%; background-color:#e8f8fc">
             <div class="form-group input-group">
-
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-question" style="margin-right:10px"></i> </span>
+                    <span class="input-group-text"> <i class="fa fa-question" style="margin-right:10px; margin-left:10px"></i> </span>
                 </div>
                 <select class="form-control">
                     <option selected="">Seleccione una opción</option>
@@ -23,13 +23,27 @@
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <button id="#boton-enviar" type="submit" class="btn btn-primary btn-block"
-                    style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; color:white">
-                Enviar
-            </button>
+        
+    </div>
+    <div class="form-group">
+        <button id="#boton-enviar" ng-click="toggleConf()" type="submit" class="btn btn-primary btn-block"
+                style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; color:white">
+            Enviar
+        </button>
+    </div>
+    <div class="confirmarencuesta" style="display:none">
+        <div class="card border-primary " style="margin:10px;  text-align: center;">
+            <div class="card-body text-primary" style="background-color:#ffffff; display: inline-block; padding:0;">
+                <p class="card-text" style="color:black; font-size:smaller; margin:5px; justify-content:flex-end; padding:5px">¿Esta usted seguro que quiere enviar la encuesta?</p>
+                <button type="button" ng-click="sendEncuesta()" ;" class="btn btn-success">Sí</button>
+                <button type="button" ng-click="toggleConf()" class="btn btn-danger">No</button>
+            </div>
         </div>
-    </form>
+    </div>
+</form>
+
+<canvas></canvas>
+
 
 
 

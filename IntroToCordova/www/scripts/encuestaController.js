@@ -12,8 +12,28 @@
         var p2 = new pregunta("titulo2", "o11", "o21", "o31", "o41");
         var p3 = new pregunta("titulo3", "o12", "o22", "o32", "o42");
         var p4 = new pregunta("titulo4", "o13", "o23", "o33", "o43");
+        var p5 = new pregunta("titulo5", "o13", "o23", "o33", "o43");
+        var p6 = new pregunta("titulo4", "o13", "o23", "o33", "o43");
+
+
         
-         $scope.preguntas = [p1, p2, p3, p4];
+        $scope.preguntas = [p1, p2, p3, p4,p5,p6];
+
+        $scope.sendEncuesta = function () {
+            window.location.href = "index.html#!/main";
+            alert("Ha sido enviada su encuesta,muchas gracias");
+
+        }
+        $scope.toggleConf = function () {
+            var x = document.getElementsByClassName('confirmarencuesta');
+            for (var i = 0, length = x.length; i < length; i++) {
+                if (x[i].style.display === "none") {
+                    x[i].style.display = "block";
+                } else {
+                    x[i].style.display = "none";
+                }
+            }
+        }
 
     };
 

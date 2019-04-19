@@ -5,7 +5,6 @@
     var quejasController = function ($scope) {
 
         var pregunta = function (titulo,id, ...opciones) {
-            
             this.titulo = titulo;
             this.opciones = opciones;
             this.id=id;
@@ -31,10 +30,18 @@
 
         $scope.elementos = [bloque1, bloque2,bloque3];
 
-        $scope.togglepreguntas = function (index) {
-            console.log(index)
-            var nombreclase = "preguntas" + index;
+        $scope.togglepreguntas = function (index, bloqueindex) {
+            var nombreclase = "preguntas" + bloqueindex + index;
             var x = document.getElementsByClassName(nombreclase);
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 4; j++) {
+                    var nombreresto = "preguntas" + j + i;
+                    var y = document.getElementsByClassName(nombreresto);
+                    try { y[0].style.display = "none"; }
+                    catch (err) { }
+                }
+                
+            }
             for (var i = 0, length = x.length; i < length; i++) {
                 if (x[i].style.display === "none") {
                     x[i].style.display = "block";
@@ -43,10 +50,16 @@
                 }
             }
         }
-        $scope.toggleopciones = function (index) {
-            console.log(index);
-            var nombreclase = "opciones" + index;
+
+        $scope.toggleopciones = function (index, bloqueindex) {
+            var nombreclase = "opciones" + bloqueindex + index;
             var x = document.getElementsByClassName(nombreclase);
+            for (var i = 0; i < 4; i++) {
+                var nombreresto = "opciones" + bloqueindex + i;
+                var y = document.getElementsByClassName(nombreresto);
+                try { y[0].style.display = "none"; }
+                catch(err){}
+            }
             for (var i = 0, length = x.length; i < length; i++) {
                 if (x[i].style.display === "none") {
                     x[i].style.display = "block";
@@ -54,12 +67,13 @@
                     x[i].style.display = "none";
                 }
             }
+            
         }
         $scope.sendQueja = function () {
-            alert("Ha sido enviada su queja, lo solucionaremos lo más pronto posible");
             window.location.href = "index.html#!/main";
-
+            alert("Ha sido enviada su queja, lo solucionaremos lo más pronto posible" );
         }
+
         $scope.toggleConf = function () {
             var x = document.getElementsByClassName('confirmarqueja');
             for (var i = 0, length = x.length; i < length; i++) {

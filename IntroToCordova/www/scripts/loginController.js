@@ -18,7 +18,7 @@
             localStorage.setItem('Aux', Aux);
             window.location.href = "index.html#!/main";
         };
-
+        
     };
 
     app.controller("loginController", loginController);
