@@ -1,5 +1,4 @@
 ﻿
-
 <div>
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 90%">
@@ -15,8 +14,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user" style="margin-right:10px"></i> </span>
                     </div>
-                    <select id="Perfil" class="form-control">
-                        <option selected="" hidden>Perfil</option>
+                    <select id="Perfil" class="form-control" required>
+                        <option value="" hidden>Perfil</option>
                         <option>Paciente</option>
                         <option>Familiar</option>
                     </select>
@@ -25,7 +24,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-ambulance" style="margin-right:10px"></i> </span>
                     </div>
-                    <select id="Area" ng-model="Area" class="form-control">
+                    <select id="Area" ng-model="Area" class="form-control" required>
                         <option value="" hidden>Area</option>
                         <option value="Hospitalizado">Hospitalizado</option>
                         <option value="Urgencias">Urgencias</option>
@@ -41,19 +40,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-id-card" style="margin-right:10px"></i> </span>
                     </div>
-                    <input id="Apellido" name="" class="form-control" placeholder="Apellido del paciente" type="text">
+                    <input id="Apellido" name="" class="form-control" placeholder="Apellido del paciente" type="text" required>
                 </div>
                 <div ng-if="Area =='Hospitalizado' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
                     </div>
-                    <input id="Hab" name="" class="form-control" placeholder="Nº de habitación" type="text">
+                    <input id="Hab" name="" class="form-control" placeholder="Nº de habitación" type="text" required>
                 </div>
                 <div ng-if="Area =='Urgencias' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
                     </div>
-                    <input id="Aux" name="" class="form-control" placeholder="Aux valor" type="text">
+                    <input id="Aux" name="" class="form-control" placeholder="Aux valor" type="text" required>
                 </div>
                 <div ng-if="Area != 'Urgencias' && Area != 'Hospitalizado' " class="form-group input-group">
                     <div class="input-group-prepend">

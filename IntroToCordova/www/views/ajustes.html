@@ -2,54 +2,76 @@
 
 <div>
     <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('cuenta')">
-        <div class="card-body text-primary" style="background-color:#cbe3e8">
-            <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Sus Datos</p>
+        <div class="card-body text-primary" style="background-color:#61c0eb">
+            <p class="card-text" style="color:black;font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Sus Datos</p>
         </div>
     </div>
-
     <div class="ajustescuenta" style="display:none">
-        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card border-primary " style="margin-left:5%; margin-right:5%;">
             <div class="card-body text-primary" style="background-color:#ffffff">
-                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Apellido: {{get('apellido')}}</p>
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px"><b>Apellido:</b> {{get('apellido')}}</p>
             </div>
         </div>
-        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card border-primary " style="margin-left:5%; margin-right:5%;">
             <div class="card-body text-primary" style="background-color:#ffffff">
-                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Situación: {{get('perfil')}}</p>
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px"><b>Situación:</b> {{get('perfil')}}</p>
             </div>
         </div>
-        <div class="card border-primary " style="margin-left:10px; margin-right:10px;">
+        <div class="card border-primary " style="margin-left:5%; margin-right:5%;">
             <div class="card-body text-primary" style="background-color:#ffffff">
-                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px">Lugar: {{get('loca')}}</p>
+                <p class="card-text" style="color:black; font-size:smaller; margin: -15px; justify-content:flex-end; padding:5px"><b>Lugar:</b> {{get('loca')}}</p>
             </div>
         </div>
     </div>
 </div>
 
-
-<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('howto')" >
-    <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">¿Cómo usar la aplicación?</p>
+<div >
+    <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('howto')">
+        <div class="card-body text-primary" style="background-color:#61c0eb">
+            <p class="card-text" style="color:black;font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">¿Cómo usar la aplicación?</p>
+        </div>
+    </div>
+    <div class="ajusteshowto" style="display:none; max-width: 90%; position:center; margin-left:5%"  >
+        <div class="card border-primary " style="display: inline-block;">
+            <div class="card-body text-primary">
+                <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">Aquí podrá recibir información, realizar encuestas y solicitar asistencia, en el caso de hospitalización y realizar encuestas sobre su experiencia en urgencias.</p>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('noti')">
-    <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Notificaciones</p>
+    <div class="card-body text-primary" style="background-color:#61c0eb">
+        <p class="card-text" style="color:black;font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Notificaciones</p>
     </div>
 </div>
-<div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('report')">
-    <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Reportar una incidencia</p>
+<div>
+    <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('report')">
+        <div class="card-body text-primary" style="background-color:#61c0eb">
+            <p class="card-text" style="color:black;font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Reportar una incidencia</p>
+        </div>
+    </div>
+    <div class="ajustesreport" style="display:none; width: 90%; position:center; margin-left:5%">
+        <div class="card border-primary " style="display: inline-block; ">
+            <div class="card-body text-primary">
+                <textarea id="textReport" rows="4" cols="45" placeholder="Especifique aqui problema"></textarea>
+                <button id="#boton-enviar"  data-toggle="modal" data-target="#ModalReport" class="btn btn-primary btn-block"
+                        style="background-color: #43ca17; width:30%; text-align:center; margin-left:35%; margin-top: 2px ;margin-bottom:-12px;color:white">
+                    Enviar
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="card border-primary " style="margin:5px;" ng-click="toggleajustes('info')">
-    <div class="card-body text-primary" style="background-color:#cbe3e8">
-        <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Información de la aplicación</p>
+    <div class="card-body text-primary" style="background-color:#61c0eb">
+        <p class="card-text" style="color:black;font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">Información de la aplicación</p>
     </div>
 </div>
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" style="position: absolute;  right:5px " class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Cerrar Sesión
 </button>
 
@@ -68,7 +90,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que desea cerrar sesión?</h5>
+                <h6 class="modal-title" id="exampleModalLabel">¿Seguro que desea cerrar sesión?</h6>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
@@ -78,3 +100,16 @@
     </div>
 </div>
 
+<div class="modal fade" id="ModalReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">¿Seguro que desea enviar este reporte?</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" ng-click="sendReport()">Si</button>
+            </div>
+        </div>
+    </div>
+</div>

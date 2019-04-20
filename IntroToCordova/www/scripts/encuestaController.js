@@ -8,16 +8,21 @@
             this.titulo = titulo;
             this.opciones = [o1,o2,o3,o4]
         }
-        var p1 = new pregunta("titulo1", "o10", "o20", "o30", "o40");
-        var p2 = new pregunta("titulo2", "o11", "o21", "o31", "o41");
-        var p3 = new pregunta("titulo3", "o12", "o22", "o32", "o42");
-        var p4 = new pregunta("titulo4", "o13", "o23", "o33", "o43");
-        var p5 = new pregunta("titulo5", "o13", "o23", "o33", "o43");
-        var p6 = new pregunta("titulo4", "o13", "o23", "o33", "o43");
+        var p1 = new pregunta("¿Qué le parecen nuestras instalaciones?", "Genial", "Bien", "Meh", "Mal");
+        var p2 = new pregunta("¿Cúal es su opinión respecto a nuestro servicio?", "Genial", "Bien", "Meh", "Mal");
+        var p3 = new pregunta("¿Qué opina usted de la cafetería?", "Genial", "Bien", "Meh", "Mal");
+        var p4 = new pregunta("¿Cómo definiría la velocidad de atención?", "Genial", "Bien", "Meh", "Mal");
+        var p5 = new pregunta("¿Que opina de la localización del hospital?", "Genial", "Bien", "Meh", "Mal");
+        var p6 = new pregunta("¿Qué aspecto considera que debemos mejorar principalmente?", "Instalaciones", "Servicio", "Cafetería", "Velocidad");
 
         $scope.preguntas = [p1, p2, p3, p4,p5,p6];
 
         $scope.sendEncuesta = function () {
+            var answer = "";
+            for (i = 0; i < $scope.preguntas.length ; i++) {
+                answer = answer + $("#select" + i).val();
+            }
+            console.log(answer);
             window.location.href = "index.html#!/main";
             $('modalId').modal('hide');
             $('body').removeClass('modal-open');

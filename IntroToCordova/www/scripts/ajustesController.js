@@ -32,7 +32,14 @@
             if (index == 'apellido') return localStorage.getItem('Apellido');
             else if (index == 'loca') return localStorage.getItem('Area');
             else if (index == 'perfil') return localStorage.getItem('Perfil');
+        }
 
+        $scope.sendReport = function () {
+            console.log($("#textReport").val());
+            window.location.href = "index.html#!/main";
+            $('modalId').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
 
         }
 

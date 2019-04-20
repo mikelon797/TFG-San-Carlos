@@ -10,7 +10,10 @@
             else if (index == '3') { window.location.href = "index.html#!/ajustes"; }
             
         }
-        
+
+        $(document).ready(function () {
+            if (localStorage.getItem('signedIn') == 'No') { window.location.href = "index.html#!/login"; }
+        });
 
     };
 
