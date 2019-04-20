@@ -1,7 +1,6 @@
 ﻿
 
 <h4>Quejas</h4>
-
 <form>
     <div ng-repeat="bloque in elementos track by $index">
         <div ng-click="togglepreguntas($index,bloque.index)">
@@ -21,8 +20,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-question" style="margin-right:10px;margin-left:10px"></i> </span>
                         </div>
-                        <select class="form-control" ng-model="pregunta.id">
-                            <option selected="">Seleccione una opción</option>
+                        <select id="select{{bloque.index}}{{$index}}" class="form-control" ng-model="pregunta.id">
+                            <option ng-selected="1" value="" hidden >Seleccione una opción</option>
                             <option ng-repeat="opcion in pregunta.opciones" value="{{opcion}}">{{opcion}}</option>
                         </select>
                     </div>
