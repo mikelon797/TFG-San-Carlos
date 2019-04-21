@@ -4,6 +4,7 @@
 
     var mainController = function ($scope) {
 
+        //Funcion para redireccionar con los botones
         $scope.redirect = function (index) {
             if (index == '1') { window.location.href = "index.html#!/quejas"; }
             else if (index == '2') { window.location.href = "index.html#!/encuesta"; }
@@ -11,8 +12,9 @@
             
         }
 
+        //En el caso de que no este "logeado" el usuario el envia al LogIn
         $(document).ready(function () {
-            if (localStorage.getItem('signedIn') == 'No') { window.location.href = "index.html#!/login"; }
+            if (localStorage.getItem('signedIn') != 'Yes') { window.location.href = "index.html#!/login"; }
         });
 
     };

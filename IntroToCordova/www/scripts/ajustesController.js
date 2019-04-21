@@ -4,6 +4,7 @@
 
     var ajustesController = function ($scope) {
 
+        //Esta función se encarga de hacer desaparecer y aparecer los DETALLES de los apartados
         $scope.toggleajustes = function (index) {
             var nombreclase = "ajustes" + index;
             var x = document.getElementsByClassName(nombreclase);
@@ -17,6 +18,7 @@
             catch(err){}
         }
 
+        //Se encarga de CERRAR SESIÓN
         $scope.logout = function () {
             localStorage.setItem('signedIn', 'No');
             localStorage.setItem('Perfil', '');
@@ -27,14 +29,16 @@
             window.location.href = "index.html";
         }
 
-       
-        $scope.get = function (index) {
-            if (index == 'apellido') return localStorage.getItem('Apellido');
-            else if (index == 'loca') return localStorage.getItem('Area');
-            else if (index == 'perfil') return localStorage.getItem('Perfil');
+       //Coje informacion de la memoría
+        $scope.get = function (par) {
+            if (par == 'apellido') return localStorage.getItem('Apellido');
+            else if (par == 'loca') return localStorage.getItem('Area');
+            else if (par == 'perfil') return localStorage.getItem('Perfil');
         }
 
+        //Envia el Reporte a la base de datos
         $scope.sendReport = function () {
+            //Hacer parte de BBDD
             console.log($("#textReport").val());
             window.location.href = "index.html#!/main";
             $('modalId').modal('hide');

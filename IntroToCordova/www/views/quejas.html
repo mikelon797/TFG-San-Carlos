@@ -1,58 +1,60 @@
-﻿
-
+﻿<!-- Titulo -->
 <h4>Quejas</h4>
 
-
+<!--Formulario en si, que se crea con bucles-->
 <form>
     <div ng-repeat="bloque in elementos track by $index">
+        <!--Titulo de cada bloque (pinchando en el se cierran los demás bloques)-->
         <div ng-click="togglepreguntas($index,bloque.index)">
             <div class="card text-white bg-info mb-3" style=" position:absolute center; margin-left:3%; margin-right:3%; margin-top: 10px">
                 <div class="card-header text-center">{{bloque.supertitulo}}</div>
             </div>
         </div>
         <div class="preguntas{{bloque.index}}{{$index}}" style="display:none">
+            <!--Preguntas de cada bloque-->
             <div ng-repeat="pregunta in bloque.preguntas track by $index">
                 <div class="card border-primary " style="margin-left:5%; margin-right:5%; margin-top: 5px" ng-click="toggleopciones($index, bloque.index)">
                     <div class="card-body text-primary" style="background-color:#cef8ff">
                         <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">{{pregunta.titulo}}</p>
                     </div>
                 </div>
+                <!-- Opciones de cada pregunta -->
                 <div class="opciones{{bloque.index}}{{$index}}" style="display:none; margin-left:7%; margin-right:7%; background-color:#def9fe">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-question fa-xs" style="margin-right:10px;margin-left:10px"></i> </span>
                         </div>
                         <select id="select{{bloque.index}}{{$index}}" class="form-control" ng-model="pregunta.id">
-                            <option ng-selected="1" value="" hidden >Seleccione una opción</option>
+                            <option ng-selected="1" value="" hidden>Seleccione una opción</option>
                             <option ng-repeat="opcion in pregunta.opciones" value="{{opcion}}">{{opcion}}</option>
                         </select>
                     </div>
+                    <!-- Si se selecciona la opcion otro aparece un campo para escribir -->
                     <div ng-if="pregunta.id == 'Otro'" style="width:70%;margin: 0 auto">
-                        <textarea id="textOtro" rows="4" cols="30" placeholder="Especifique aqui su queja."></textarea>
+                        <textarea id="textOtro{{bloque.index}}{{$index}}" rows="4" cols="30" required placeholder="Especifique aqui su queja."></textarea>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
     </div>
     <div class="form-group">
-        <button id="#boton-enviar" type="submit"  data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary btn-block"
+        <!--Botón de enviar-->
+        <button id="#boton-enviar" type="submit" disabled=true data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-block"
                 style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; margin-top: 10px ;color:white">
             Enviar
         </button>
-    </div>
-    <!--<div class="confirmarqueja" style="display:none">
-        <div class="card border-primary " style="margin:10px;  text-align: center;">
-            <div class="card-body text-primary" style="background-color:#ffffff; display: inline-block; padding:0;">
-                <p class="card-text" style="color:black; font-size:smaller; margin:5px; justify-content:flex-end; padding:5px">¿Esta usted seguro que quiere enviar la queja?</p>
-                <button type="button" ng-click="sendQueja()" ;" class="btn btn-success">Sí</button>
-                <button type="button" ng-click="toggleConf()" class="btn btn-danger">No</button>
+        <!--Texto explicativo de porque no es valido el formulario-->
+        <div style="text-align: center;">
+            <div style="display: inline-block;">
+                <p id="textTermina" style="font-size:xx-small; margin-top:-10px">Debe marcar una queja para poder enviarla.</p>
             </div>
         </div>
-    </div>-->
+    </div>
 </form>
 
+<!-- Menu Pop-up de confirmación de envio -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
