@@ -1,5 +1,4 @@
 ﻿<div>
-
     <div class="card text-white bg-info mb-3" style=" position:absolute center">
         <div class="card-header text-center">Encuesta sobre su experiencia</div>
     </div>
@@ -7,7 +6,7 @@
 
 <form>
     <div ng-repeat="pregunta in preguntas track by $index">
-        <div class="card border-primary " style="margin-left:5%; margin-right:5%; margin-top: 5px"">
+        <div class="card border-primary " style="margin-left:5%; margin-right:5%; margin-top: 5px" ">
             <div class="card-body text-primary" style="background-color:#cef8ff">
                 <p class="card-text" style="font-size:smaller; margin: -15px; justify-content:flex-end; padding:10px">{{pregunta.titulo}}</p>
             </div>
@@ -15,7 +14,7 @@
         <div style="margin-left:7%; margin-right:7%; background-color:#e8f8fc">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-question" style="margin-right:10px; margin-left:10px"></i> </span>
+                    <span class="input-group-text"> <i class="fa fa-question fa-xs" style="margin-right:10px; margin-left:10px"></i> </span>
                 </div>
                 <select id="select{{$index}}" class="form-control" required>
                     <option selected="" value="" hidden>Seleccione una opción</option>
@@ -23,14 +22,21 @@
                 </select>
             </div>
         </div>
-        
     </div>
+
     <div class="form-group">
-        <button id="#boton-enviar"  type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary btn-block"
-                style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; color:white">
+        <button id="#boton-enviar" type="submit" disabled=true data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-block"
+                style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; margin-bottom:0; color:white">
             Enviar
         </button>
+        <div style="text-align: center;">
+            <div style="display: inline-block;">
+                <p id="textTermina" style="font-size:xx-small; margin-top:-10px">Debe terminar la encuesta para poder enviarla</p>
+            </div>
+        </div>
     </div>
+
+    
     <!--<div class="confirmarencuesta" style="display:none">
         <div class="card border-primary " style="margin:10px;  text-align: center;">
             <div class="card-body text-primary" style="background-color:#ffffff; display: inline-block; padding:0;">

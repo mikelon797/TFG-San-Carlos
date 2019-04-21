@@ -28,17 +28,40 @@
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
         }
-
-        $scope.toggleConf = function () {
-            var x = document.getElementsByClassName('confirmarencuesta');
-            for (var i = 0, length = x.length; i < length; i++) {
-                if (x[i].style.display === "none") {
-                    x[i].style.display = "block";
-                } else {
-                    x[i].style.display = "none";
+        $(document).ready(function () {
+            $("select" + ($scope.preguntas.length - 1)).change(function () {
+                alert("The text has been changed.");
+            });
+        });
+        $(document).ready(function () {
+            $("select").change(function () {
+                if ($scope.validateForm()) {
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
                 }
+            });
+        });
+
+        $scope.validateForm = function () {
+            for (var i = 0; i < $scope.preguntas.length; i++) {
+                console.log($("#select" + i).val());
+                if ($("#select" + i).val() == "") { return false; }
             }
-        }
+            return true;
+         }
+
+
+        //$scope.toggleConf = function () {
+        //    var x = document.getElementsByClassName('confirmarencuesta');
+        //    for (var i = 0, length = x.length; i < length; i++) {
+        //        if (x[i].style.display === "none") {
+        //            x[i].style.display = "block";
+        //        } else {
+        //            x[i].style.display = "none";
+        //        }
+        //    }
+        //}
+        
 
     };
 
