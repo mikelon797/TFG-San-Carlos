@@ -15,14 +15,17 @@
 <!-- Texto de los botones -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4" style="text-align: center;">
-            <h5 style="display: inline-block;">Quejas</h5>
+        <div class="col-3" style="text-align: center;">
+            <h5 style="display: inline-block;">Incidentes</h5>
         </div>
-        <div class="col-4" style="text-align: center;">
-            <h5 style="display: inline-block;" >Encuesta</h5>
+        <div class="col-3" style="text-align: center;">
+            <h5 style="display: inline-block;">Encuesta</h5>
         </div>
-        <div class="col-4" style="text-align: center;">
-            <h5 style="display: inline-block;" >Ajustes</h5>
+        <div class="col-3" style="text-align: center;">
+            <h5 style="display: inline-block;">Ajustes</h5>
+        </div>
+        <div class="col-3" style="text-align: center;">
+            <h5 style="display: inline-block;">Servicios</h5>
         </div>
     </div>
 </div>
@@ -30,24 +33,31 @@
 <!-- Imagenes clickables para redireccionar -->
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-4" >
+        <div class="col-3">
             <div class="thumbnail">
                 <div class="img-wrapper">
-                    <img ng-click="redirect('1')"  style="border:1px solid black;" src="../images/quejas.png" width="90" height="90">
+                    <img ng-click="redirect('1')" style="border:1px solid black;" src="../images/quejas.png" width="90" height="90">
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="thumbnail">
                 <div class="img-wrapper">
                     <img ng-click="redirect('2')" style="border:1px solid black;" src="../images/encuestas.png" width="90" height="90">
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="thumbnail">
                 <div class="img-wrapper">
-                    <img ng-click="redirect('3')" style="border:1px solid black;" src="../images/ajustes.png" width="90" height="90" >
+                    <img ng-click="redirect('3')" style="border:1px solid black;" src="../images/ajustes.png" width="90" height="90">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="thumbnail">
+                <div class="img-wrapper">
+                    <img ng-click="redirect('4')" style="border:1px solid black;" src="../images/ajustes.png" width="90" height="90">
                 </div>
             </div>
         </div>

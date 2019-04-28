@@ -1,9 +1,9 @@
 ﻿
 <div>
     <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 90%">
+        <article class="card-body mx-auto" style="max-width: 90%; margin-top:0px;">
             <!--Titulo de bienvenida-->
-            <h4 class="card-title mt-3 text-center">Bienvenido</h4>
+            <h4 class="card-title mt-3 text-center" style=" margin-top:0px!important";>Bienvenido</h4>
             <!--Cartel explicativo-->
             <div class="card border-primary " style="">
                 <div class="card-body text-primary">
@@ -49,6 +49,13 @@
                     </div>
                     <input id="Apellido" name="" class="form-control" placeholder="Apellido del paciente" type="text" required>
                 </div>
+                <!--Elemento Fecha Nacimiento del formulario-->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-calendar-week" style="margin-right:10px"></i> </span>
+                    </div>
+                    <input id="FechaNac" type="date" class="form-control" placeholder="Fecha de Nacimiento" required>
+                </div>
                 <!--Elemento Habitacion (if Hospitalizado) del formulario-->
                 <div ng-if="Area =='Hospitalizado' " class="form-group input-group">
                     <div class="input-group-prepend">
@@ -56,12 +63,16 @@
                     </div>
                     <input id="Hab" name="" class="form-control" placeholder="Nº de habitación" type="text" required>
                 </div>
-                <!--Elemento Aux (if Urgencias) del formulario-->
+                <!--Elemento Genero (if Urgencias) del formulario-->
                 <div ng-if="Area =='Urgencias' " class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-venus-mars" style="margin-right:10px"></i> </span>
                     </div>
-                    <input id="Aux" name="" class="form-control" placeholder="Aux valor" type="text" required>
+                    <select id="Genero" class="form-control" required>
+                        <option value="" hidden>Género</option>
+                        <option>Varon</option>
+                        <option>Mujer</option>
+                    </select>
                 </div>
                 <!--Elemento Temporal  del formulario-->
                 <div ng-if="Area != 'Urgencias' && Area != 'Hospitalizado' " class="form-group input-group">

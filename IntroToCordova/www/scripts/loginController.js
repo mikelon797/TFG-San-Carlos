@@ -15,14 +15,14 @@
             var Perfil = $("#Perfil").val();
             var Apellido = $("#Apellido").val();
             var Hab = $("#Hab").val();
-            var Aux = $("#Aux").val();
+            var Genero = $("#Genero").val();
             //Hacer la parte de preguntar a la base de datos
             localStorage.setItem('signedIn', 'Yes');
             localStorage.setItem('Perfil', Perfil);
             localStorage.setItem('Area', Area);
             localStorage.setItem('Apellido', Apellido);
             localStorage.setItem('Hab', Hab);
-            localStorage.setItem('Aux', Aux);
+            localStorage.setItem('Genero', Genero);
             window.location.href = "index.html#!/main";
         }
             
@@ -52,7 +52,6 @@
                     document.getElementById("#boton-enviar").disabled = false;
                     document.getElementById("textTermina").style.display = "none";
                 }
-
             });
         });
 
@@ -62,11 +61,13 @@
             var Perfil = $("#Perfil").val();
             var Apellido = $("#Apellido").val();
             var Hab = $("#Hab").val();
-            var Aux = $("#Aux").val();
+            var Genero = $("#Genero").val();
+            var FechaNac = $("#FechaNac").val();
             if (Area == "Area") { return false }
             if (Perfil == "Perfil") { return false }
-            if (Apellido == ""  ) { return false }
-            if (Aux == "" && Hab == "") { return false }
+            if (Apellido == "") { return false }
+            if (FechaNac == "") { return false }
+            if (Genero == "" && Hab == "") { return false }
             if ($scope.hasNumber(Apellido)) { console.log("hey1"); return false }
             else return true
         }

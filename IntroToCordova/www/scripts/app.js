@@ -25,6 +25,10 @@
                 templateUrl: "./views/main.html",
                 controller: "mainController"
             })
+            .when("/servicios", {
+                templateUrl: "./views/servicios.html",
+                controller: "serviciosController"
+            })
             .otherwise({redirectTo:"/main"});
     });
     
