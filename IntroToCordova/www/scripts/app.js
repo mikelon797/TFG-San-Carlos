@@ -21,6 +21,10 @@
                 templateUrl: "./views/encuesta.html",
                 controller: "encuestaController"
             })
+            .when("/encuesta2", {
+                templateUrl: "./views/encuesta2.html",
+                controller: "encuesta2Controller"
+            })
             .when("/main", {
                 templateUrl: "./views/main.html",
                 controller: "mainController"

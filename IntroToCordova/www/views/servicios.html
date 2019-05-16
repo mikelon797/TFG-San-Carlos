@@ -7,13 +7,10 @@
             <div class="card-body text-primary">
                 <p class="card-text" style="font-size:smaller; margin:-15px; justify-content:flex-end">Seleccione el servicio</p>
             </div>
-
         </div>
         <!-- Selección de servicio -->
         <div class="form-group input-group">
-            <!--<div class="input-group-prepend">
-                <span class="input-group-text"> <h9>Seleccione el servicio:</h9>     </span>
-            </div>-->
+            
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-clipboard-list" style="margin-right:10px"></i> </span>
             </div>
@@ -31,31 +28,84 @@
 </div>
 <div style="text-align: center;">
     <div style="display: inline-block; width: 90%;">
-
         <form>
-            <div id="bloquePeluqueria" style="display:none;" >
-                <h5>Peluqueria</h5>
+            <div id="bloquePeluqueria" style="display:none;">
+                <canvas height="15%"></canvas>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textPeluqueria" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
             <div id="bloqueBiblioteca" style="display:none;">
-                <h5>Biblioteca</h5>
+                <canvas height="15%"></canvas>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-book" style="margin-right:10px"></i> </span>
+                    </div>
+                    <select id="Genero" class="form-control" required>
+                        <option value="" hidden>Género Literario</option>
+                        <option>Infantil</option>
+                        <option>Cómics y manga</option>
+                        <option>Intriga</option>
+                        <option>Historia</option>
+                        <option>Ya se verá</option>
+                    </select>
+                </div>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textBiblioteca" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
             <div id="bloqueQuiosco" style="display:none;">
-                <h5>Quiosco</h5>
+                <canvas height="15%"></canvas>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textQuiosco" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
             <div id="bloqueAsistencia" style="display:none;">
-                <h5>Asistencia</h5>
+                <canvas height="15%"></canvas>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textAsistencia" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
             <div id="bloqueVoluntariado" style="display:none;">
-                <h5>Voluntariado</h5>
+                <canvas height="15%"></canvas>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textVoluntariado" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
             <div id="bloqueDieta" style="display:none;">
-                <h5>Dieta</h5>
+                <canvas height="15%"></canvas>
+                <div>
+                    <!--Opción de dieta-->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-utensils fa-xs" style="margin-right:10px;margin-left:10px"></i> </span>
+                        </div>
+                        <select id="DietaElegida" class="form-control">
+                            <option ng-selected="1" value="" hidden>Seleccione una opción</option>
+                            <option ng-repeat="dieta in elementos" value="{{dieta.index}}">{{dieta.nombreDieta}}</option>
+                        </select>
+                    </div>
+                    <div ng-repeat="dieta in elementos track by $index">
+                        <div id="opcionesDieta{{$index}}" class="form-group input-group" style="display:none;">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-utensil-spoon fa-xs" style="margin-right:10px;margin-left:10px"></i> </span>
+                            </div>
+                            <select id="OpcionElegida{{$index}}" class="form-control">
+                                <option ng-selected="1" value="" hidden>Seleccione una opción</option>
+                                <option ng-repeat="opcion in dieta.opciones" value="{{opcion.index}}">{{opcion.nombreOpcion}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:90%;margin: 0 auto">
+                    <textarea id="textDieta" rows="4" cols="40" placeholder="Especifique aqui los detalles"></textarea>
+                </div>
             </div>
-            <div class="form-group">
+            <div id="bloqueEnviar" class="form-group" style="display:none">
                 <!--Botón de enviar-->
                 <button id="#boton-enviar" type="submit" disabled=true data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-block"
-                        style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; margin-bottom:0; color:white">
-                    Enviar
+                        style="background-color: #43ca17; width:70%; text-align:center; margin-left:15%; margin-bottom:0; color:white; ">
+                    Solicitar
                 </button>
                 <!--Texto explicativo de porque no es valido el formulario-->
                 <div style="text-align: center;">
@@ -70,7 +120,7 @@
 
 
 <!-- Menu Pop-up de confirmación de envio -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,7 +128,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" ng-click="sendEncuesta()">Si</button>
+                <button type="button" class="btn btn-primary" ng-click="sendServicio()">Si</button>
             </div>
         </div>
     </div>
