@@ -7,6 +7,7 @@
         //En el caso de que no este "logeado" el usuario el envia al LogIn
         $(document).ready(function () {
             if (localStorage.getItem('signedIn') != 'Yes') { window.location.href = "index.html#!/login"; }
+
         });
 
         Survey.Survey.cssType = "bootstrap";

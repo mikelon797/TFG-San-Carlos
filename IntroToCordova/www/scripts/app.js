@@ -37,6 +37,14 @@
                 templateUrl: "./views/selectencuesta.html",
                 controller: "selectencuestaController"
             })
+            .when("/seguimientoservicios", {
+                templateUrl: "./views/seguimientoservicios.html",
+                controller: "seguimientoserviciosController"
+            })
+             .when("/seguimientoquejas", {
+                 templateUrl: "./views/seguimientoquejas.html",
+                 controller: "seguimientoquejasController"
+            })
             .otherwise({redirectTo:"/main"});
     });
     

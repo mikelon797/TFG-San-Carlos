@@ -24,6 +24,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "none";
                     document.getElementById("bloqueDieta").style.display = "none";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
                 }
                 if (ServicioSeleccionado == "Biblioteca") {
                     document.getElementById("bloquePeluqueria").style.display = "none";
@@ -33,6 +35,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "none";
                     document.getElementById("bloqueDieta").style.display = "none";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
 
                 }
                 if (ServicioSeleccionado == "Asistencia Religiosa") {
@@ -43,6 +47,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "none";
                     document.getElementById("bloqueDieta").style.display = "none";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
 
                 }
                 if (ServicioSeleccionado == "Voluntariado") {
@@ -53,6 +59,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "block";
                     document.getElementById("bloqueDieta").style.display = "none";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
 
                 }
                 if (ServicioSeleccionado == "Quiosco") {
@@ -63,6 +71,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "none";
                     document.getElementById("bloqueDieta").style.display = "none";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
 
                 }
                 if (ServicioSeleccionado == "Dieta") {
@@ -73,6 +83,8 @@
                     document.getElementById("bloqueVoluntariado").style.display = "none";
                     document.getElementById("bloqueDieta").style.display = "block";
                     document.getElementById("bloqueEnviar").style.display = "block";
+                    document.getElementById("#boton-enviar").disabled = false;
+                    document.getElementById("textTermina").style.display = "none";
 
                 }
 
@@ -125,7 +137,15 @@
 
         //En esta variable de almacenan todos los bloques y preguntas
         $scope.elementos = [dieta1, dieta2];
-
+        $scope.sendService = function () {
+            
+            console.log($("#ServicioSeleccionado").val());
+            //Hacer parte de enviar a la base de datos
+            window.location.href = "index.html#!/main";
+            $('modalId').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        }
         
 
 

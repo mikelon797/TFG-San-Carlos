@@ -1,0 +1,20 @@
+﻿<h4 id="titulo" style=" margin:1%">Seguimiento de quejas</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col" style="font-size:small">Fecha</th>
+            <th scope="col" style="font-size:small">Incidencia</th>
+            <th scope="col" style="font-size:small">Informado</th>
+            <th scope="col" style="font-size:small">Cerrado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in elementos">
+            <td style="font-size:small">{{item.fecha}}</td>
+            <th style="font-size:small">{{item.incidencia}}</th>
+            <td style="font-size:small">{{item.informed}}</td>
+            <td style="font-size:small">{{item.closed}}</td>
+        </tr>
+
+    </tbody>
+</table>
