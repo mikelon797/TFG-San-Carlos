@@ -10,8 +10,13 @@
   <engine name="windows" spec="~4.4.2" />
   <content src="index.html" />
   <access origin="*" />
+  
+  <!-- SplashScreen-->
   <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="2000" />
+  <preference name="SplashScreenDelay" value="1000" />
+  <preference name="SplashShowOnlyFirstTime" value="true" />
+  
+  
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->
   <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
@@ -29,10 +34,10 @@
     <allow-intent href="itms-apps:*" />
   </platform>
   <platform name="android">
-    <icon src="res/icons/android/icon-36-ldpi.png" density="ldpi" />
-    <icon src="res/icons/android/icon-48-mdpi.png" density="mdpi" />
-    <icon src="res/icons/android/icon-72-hdpi.png" density="hdpi" />
-    <icon src="res/icons/android/icon-96-xhdpi.png" density="xhdpi" />
+    <icon src="res/icon/android/ldpi.png" density="ldpi" />
+    <icon src="res/icon/android/mdpi.png" density="mdpi" />
+    <icon src="res/icon/android/hdpi.png" density="hdpi" />
+    <icon src="res/icon/android/xhdpi.png" density="xhdpi" />
   </platform>
   <platform name="ios">
     <!-- iOS 8.0+ -->
@@ -82,10 +87,10 @@
     <splash src="res/screens/android/screen-ldpi-landscape.png" density="land-ldpi" />
     <splash src="res/screens/android/screen-mdpi-landscape.png" density="land-mdpi" />
     <splash src="res/screens/android/screen-xhdpi-landscape.png" density="land-xhdpi" />
-    <splash src="res/screens/android/screen-hdpi-portrait.png" density="port-hdpi" />
-    <splash src="res/screens/android/screen-ldpi-portrait.png" density="port-ldpi" />
-    <splash src="res/screens/android/screen-mdpi-portrait.png" density="port-mdpi" />
-    <splash src="res/screens/android/screen-xhdpi-portrait.png" density="port-xhdpi" />
+    <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi" />
+    <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi" />
+    <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi" />
+    <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi" />
   </platform>
   <platform name="ios">
     <splash src="res/screens/ios/screen-iphone-portrait.png" width="320" height="480" />
@@ -106,4 +111,5 @@
   </platform>
   <preference name="Orientation" value="portrait" />
   <preference name="Fullscreen" value="True" />
+  <plugin name="cordova-plugin-splashscreen" spec="~5.0.2" />
 </widget>

@@ -7,7 +7,7 @@
         //Funcion para redireccionar con los botones
         $scope.redirect = function (index) {
             if (index == '1') { window.location.href = "index.html#!/quejas"; }
-            else if (index == '2') { window.location.href = "index.html#!/encuesta"; }
+            else if (index == '2') { window.location.href = "index.html#!/selectencuesta"; }
             else if (index == '3') { window.location.href = "index.html#!/ajustes"; }
             else if (index == '4') { window.location.href = "index.html#!/servicios"; }
             

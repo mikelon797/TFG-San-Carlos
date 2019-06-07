@@ -4,6 +4,10 @@
 
     var quejasController = function ($scope) {
 
+        //En el caso de que no este "logeado" el usuario el envia al LogIn
+        $(document).ready(function () {
+            if (localStorage.getItem('signedIn') != 'Yes') { window.location.href = "index.html#!/login"; }
+        });
 
         //Clase Pregunta
         var pregunta = function (titulo, id, ...opciones) {
@@ -28,13 +32,27 @@
         var c1 = new pregunta("Calidad", "31", "o10", "o20", "Otro");
         var c2 = new pregunta("Alergias", "32", "o11", "o21", "Otro");
         var c3 = new pregunta("Cantidad", "33", "o12", "o22", "Otro");
+        var o1 = new pregunta("Otra incidencia", "41", "Otro");
 
         var bloque1 = new bloque(1, "Atención", a1, a2, a3);
         var bloque2 = new bloque(2, "Instalaciones", i1, i2, i3);
         var bloque3 = new bloque(3, "Comida", c1, c2, c3);
+        var bloque4 = new bloque(4, "Otra incidencia", o1);
 
-        //En esta variable de almacenan todos los bloques y preguntas
-        $scope.elementos = [bloque1, bloque2, bloque3];
+        var bloque11 = new bloque(1, "Atención Urgencias", a1, a2, a3);
+        var bloque22 = new bloque(2, "Instalaciones Urgencias", i1, i2, i3);
+        var bloque44 = new bloque(4, "Otra incidencia", o1);
+
+        if (localStorage.getItem('Area') == 'Hospitalizado') {
+            //En esta variable de almacenan todos los bloques y preguntas
+            $scope.elementos = [bloque1, bloque2, bloque3, bloque4];
+        }
+        if (localStorage.getItem('Area') == 'Urgencias') {
+            //En esta variable de almacenan todos los bloques y preguntas
+            $scope.elementos = [bloque11, bloque22, bloque44];
+        }
+       
+        
 
         //Esta función se encarga de hacer desaparecer y aparecer las PREGUNTAS
         $scope.togglepreguntas = function (index, bloqueindex) {

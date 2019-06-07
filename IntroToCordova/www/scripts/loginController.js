@@ -47,16 +47,24 @@
         //Cuando cambia alguna "input" comprueba si puede activar el boton de enviar
         $(document).ready(function () {
             $( "input").change(function () {
-                console.log("menterao")
+               
                 if ($scope.validateForm()) {
                     document.getElementById("#boton-enviar").disabled = false;
                     document.getElementById("textTermina").style.display = "none";
+                }
+                if (!$scope.validateForm()) {
+                    document.getElementById("#boton-enviar").disabled = true;
+                    document.getElementById("textTermina").style.display = "block";
                 }
             });
         });
 
         //Valida el formulario
         $scope.validateForm = function () {
+           
+            console.log($("#Genero").val());
+            console.log($("#Hab").val());
+
             var Area = $("#Area").val();
             var Perfil = $("#Perfil").val();
             var Apellido = $("#Apellido").val();
@@ -67,8 +75,10 @@
             if (Perfil == "Perfil") { return false }
             if (Apellido == "") { return false }
             if (FechaNac == "") { return false }
-            if (Genero == "" && Hab == "") { return false }
-            if ($scope.hasNumber(Apellido)) { console.log("hey1"); return false }
+            if (Genero == "" && Hab == undefined) { console.log("yo"); return false; }
+            if (Genero == undefined && Hab == "") { console.log("ye"); return false; }
+            if ($scope.hasNumber(Apellido)) { return false }
+            if ($("#PoliticaPrivacidad").prop("checked") == false) { return false}
             else return true
         }
 

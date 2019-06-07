@@ -1,0 +1,12 @@
+﻿<h4 id="titulo" style=" margin:1%">Encuestas</h4>
+
+
+<div id="selectencuesta" >
+    <ul class="list-group">
+        <button ng-repeat="encuesta in elementos " ng-click="displaySurvey(encuesta.json)" type="button" class="list-group-item list-group-item-action active" style="margin-top:1%; background-color:dodgerblue">
+            {{encuesta.titulo}}
+        </button>
+    </ul>
+
+</div>
+<div id="surveyContainer" style="display:none"></div>

@@ -1,6 +1,6 @@
 ﻿ 
 <div style="text-align: center;">
-    <div style="display: inline-block; max-width: 90%; margin-bottom:50%">
+    <div style="display: inline-block; max-width: 90%; margin-bottom:20%">
         <!-- Titulo bienvenida -->
         <h4 class="card-title mt-3 text-center">Bienvenido</h4>
         <!-- Texto explicativo -->
@@ -12,52 +12,55 @@
     </div>
 </div>
 
-<!-- Texto de los botones -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3" style="text-align: center;">
-            <h5 style="display: inline-block;">Incidentes</h5>
-        </div>
-        <div class="col-3" style="text-align: center;">
-            <h5 style="display: inline-block;">Encuesta</h5>
-        </div>
-        <div class="col-3" style="text-align: center;">
-            <h5 style="display: inline-block;">Ajustes</h5>
-        </div>
-        <div class="col-3" style="text-align: center;">
-            <h5 style="display: inline-block;">Servicios</h5>
-        </div>
-    </div>
-</div>
+
 
 <!-- Imagenes clickables para redireccionar -->
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-2"></div>
+        <div class="col-3" style="text-align:center">
+            <h5 style="display: inline-block;text-align: center;">Incidentes</h5>
+
             <div class="thumbnail">
                 <div class="img-wrapper">
                     <img ng-click="redirect('1')" style="border:1px solid black;" src="../images/quejas.png" width="90" height="90">
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-2"></div>
+        <div class="col-3"style="text-align:center">
+            <h5 style="display: inline-block;text-align: center;">Encuesta</h5>
+
             <div class="thumbnail">
                 <div class="img-wrapper">
                     <img ng-click="redirect('2')" style="border:1px solid black;" src="../images/encuestas.png" width="90" height="90">
                 </div>
             </div>
         </div>
-        <div class="col-3">
+
+    </div>
+    <div class="row" style="margin-top:5%">
+        <div class="col-2"></div>
+
+        <div class="col-3"style="text-align:center">
+            <div style="text-align:center">
+                <h5 style="display: inline-block;">Ajustes</h5>
+            </div>
+
             <div class="thumbnail">
                 <div class="img-wrapper">
                     <img ng-click="redirect('3')" style="border:1px solid black;" src="../images/ajustes.png" width="90" height="90">
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-2"></div>
+
+        <div class="col-3"style="text-align:center">
+            <h5 style="display: inline-block;">Servicios</h5>
+
             <div class="thumbnail">
                 <div class="img-wrapper">
-                    <img ng-click="redirect('4')" style="border:1px solid black;" src="../images/ajustes.png" width="90" height="90">
+                    <img ng-click="redirect('4')" style="border:1px solid black;" src="../images/servicios.png" width="90" height="90">
                 </div>
             </div>
         </div>

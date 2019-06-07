@@ -4,6 +4,17 @@
 
     var ajustesController = function ($scope) {
 
+        //En el caso de que no este "logeado" el usuario el envia al LogIn
+        $(document).ready(function () {
+            if (localStorage.getItem('signedIn') != 'Yes') { window.location.href = "index.html#!/login"; }
+        });
+        
+        $scope.checklog = function () {
+            console.log("hu");
+            if (localStorage.getItem('signedIn') != 'Yes') {
+                window.location.href = "index.html#!/login";
+            }
+        }
         //Esta función se encarga de hacer desaparecer y aparecer los DETALLES de los apartados
         $scope.toggleajustes = function (index) {
             var nombreclase = "ajustes" + index;

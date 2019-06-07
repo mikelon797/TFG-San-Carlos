@@ -33,6 +33,10 @@
                 templateUrl: "./views/servicios.html",
                 controller: "serviciosController"
             })
+            .when("/selectencuesta", {
+                templateUrl: "./views/selectencuesta.html",
+                controller: "selectencuestaController"
+            })
             .otherwise({redirectTo:"/main"});
     });
     
