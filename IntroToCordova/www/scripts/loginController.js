@@ -28,6 +28,8 @@
                     localStorage.setItem('Hab', Hab);
                     localStorage.setItem('Genero', Genero);
                     localStorage.setItem('FechaNac', fechaNac);
+                    localStorage.setItem('notificationSetting', 'Yes');
+
                     window.location.href = "index.html#!/main";
 
             }
@@ -62,7 +64,7 @@
                     }
                 });
             }
-                if(Area=="URGENCIAS") {
+            if(Area=="URGENCIAS") {
                 var datos = { "area": Area, "apellido": Apellido, "fechanac": fechaNac, "genero": Genero };
                 $.ajax({
                     url: "http://138.100.72.88/hsc/usuarios/checklogin.php",
@@ -83,7 +85,7 @@
                         }
                     }
                 });
-            }
+            }   
 
         }
             
@@ -137,10 +139,6 @@
             if ($("#PoliticaPrivacidad").prop("checked") == false) { return false}
             else return true
         }
-
-        
-        
-        
     };
 
     app.controller("loginController", loginController);

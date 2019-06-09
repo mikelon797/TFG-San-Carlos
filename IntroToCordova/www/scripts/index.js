@@ -9,6 +9,7 @@
 
     document.addEventListener('deviceready', function () {
 
+
         cordova.plugins.notification.local.hasPermission(function (granted) { });
 
         cordova.plugins.notification.local.schedule({
@@ -30,7 +31,7 @@
             }
         });
 
-        if (localStorage.getItem('signedIn') == 'Yes') {
+        if (localStorage.getItem('signedIn') == 'Yes' || localStorage.getItem('notificationSetting') == 'No' ) {
             cordova.plugins.notification.local.cancel(1, function () { }, scope);
         }
 

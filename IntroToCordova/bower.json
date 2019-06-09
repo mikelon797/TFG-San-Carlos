@@ -7,7 +7,8 @@
     "material-design-lite": "v1.3.0",
     "angular": "v1.7.8",
     "angular-route": "v1.6.4-build.5316+sha.38f8c97",
-    "bootstrap-material-design": "v4.1.1"
+    "bootstrap-material-design": "v4.1.1",
+    "bootstrap-toggle": "2.2.2"
   },
   "resolutions": {
     "angular": "v1.7.8",

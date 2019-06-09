@@ -52,6 +52,30 @@
             $('.modal-backdrop').remove();
         }
 
+        $(document).ready(function () {
+            $("input").change(function () {
+                if ($("#NotificationCheckbox").prop("checked") == false) {
+                    localStorage.setItem('notificationSetting', 'No');
+                }
+                if ($("#NotificationCheckbox").prop("checked") == true) {
+                    localStorage.setItem('notificationSetting', 'Yes');
+                }
+            });
+        });
+
+        //$(document).ready(function () {
+        //    if (localStorage.getItem('notificationSetting') == 'Yes') {
+        //        document.getElementById("PoliticaPrivacidad").checked = true;
+        //    }
+        //    if (localStorage.getItem('notificationSetting') == 'No') {
+        //        document.getElementById("PoliticaPrivacidad").checked = false;
+        //    }
+        //});
+               
+                
+            
+
+
     };
 
     app.controller("ajustesController", ajustesController);
