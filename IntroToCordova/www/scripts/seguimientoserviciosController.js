@@ -22,8 +22,13 @@
         
         //Creo las preguntas y bloques
         var servicio1 = new servicio("Biblioteca", "06/05/19",1,0);
-        var servicio2 = new servicio("Peluqueria", "04/05/19", 1,1);
-        $scope.elementos = [servicio1, servicio2];
+        var servicio2 = new servicio("Peluqueria", "04/05/19", 1, 0);
+        var servicio3 = new servicio("Quiosco", "20/04/19", 1, 1);
+        var servicio4 = new servicio("Asistencia Religiosa", "14/04/19", 1, 1);
+        var servicio5 = new servicio("Biblioteca", "04/03/19", 1, 1);
+        var servicio6 = new servicio("Peluqueria", "18/02/19", 1, 1);
+
+        $scope.elementos = [servicio1, servicio2, servicio3,servicio4,servicio5,servicio6];
 
     };
 

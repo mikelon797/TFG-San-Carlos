@@ -4,7 +4,7 @@
 
     var selectencuestaController = function ($scope) {
 
-        //Clase Pregunta
+        //Clase Encuesta
         var encuesta = function (titulo, json) {
             this.titulo = titulo;
             this.json = JSON.stringify(json);
@@ -15,9 +15,12 @@
         var surveyJSON2 = { pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué opinión le merecen nuestras instalaciones? (v2)", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "Si", text: "Sí" }, "No", { value: "Que", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas gracias por compartir su opinión</h4>" };
         var surveyJSONselected = null;
         //Creo las preguntas y bloques
-        var encuesta1 = new encuesta("Encuesta1", surveyJSON);
-        var encuesta2 = new encuesta("Encuesta2", surveyJSON2);
-        $scope.elementos = [encuesta1, encuesta2];
+        var encuesta1 = new encuesta("Encuesta General", surveyJSON);
+        var encuesta2 = new encuesta("Encuesta sobre las Instalaciones", surveyJSON2);
+        var encuesta3 = new encuesta("Encuesta sobre su Experiencia", surveyJSON2);
+        var encuesta4 = new encuesta("Encuesta de Servicio", surveyJSON2);
+
+        $scope.elementos = [encuesta1, encuesta2, encuesta3,encuesta4];
 
 
         //En el caso de que no este "logeado" el usuario el envia al LogIn
@@ -35,17 +38,12 @@
         }
         
 
-        //var survey = new Survey.Model(surveyJSONsent);
-        //surveyJSONselected = surveyJSONsent;
         $scope.displaySurvey = function (survey) {
             var surveyJSONsent = JSON.parse(survey);
             document.getElementById("surveyContainer").style.display = "block";
             document.getElementById("selectencuesta").style.display = "none";
             document.getElementById("titulo").style.display = "none";
-
-
             var survey = new Survey.Model(surveyJSONsent);
-
             $("#surveyContainer").Survey({
                 model: survey,
                 onComplete: sendDataToServer

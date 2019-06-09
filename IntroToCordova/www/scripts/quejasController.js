@@ -43,12 +43,12 @@
         var bloque22 = new bloque(2, "Instalaciones Urgencias", i1, i2, i3);
         var bloque44 = new bloque(4, "Otra incidencia", o1);
 
-        if (localStorage.getItem('Area') == 'Hospitalizado') {
-            //En esta variable de almacenan todos los bloques y preguntas
+        if (localStorage.getItem('Area') == 'HOSPITALIZADO') {
+            //En esta variable de almacenan todos los bloques y preguntas de hospitalizados
             $scope.elementos = [bloque1, bloque2, bloque3, bloque4];
         }
-        if (localStorage.getItem('Area') == 'Urgencias') {
-            //En esta variable de almacenan todos los bloques y preguntas
+        if (localStorage.getItem('Area') == 'URGENCIAS') {
+            //En esta variable de almacenan todos los bloques y preguntas  de urgencias
             $scope.elementos = [bloque11, bloque22, bloque44];
         }
        
@@ -108,11 +108,7 @@
         //Cuando cambia alguna opción comprueba si puede activar el boton de enviar
         $(document).ready(function () {
             $("select").change(function () {
-                //if ($scope.validateForm() == "otro") {
-                //    //document.getElementById("textTermina").innerText = "Debe especificar la otra razon";
-                //    //document.getElementById("textTermina").style.display = "block";
-                //    document.getElementById("#boton-enviar").disabled = true;
-                //}
+                
                 if ($scope.validateForm()) {
                     document.getElementById("#boton-enviar").disabled = false;
                     document.getElementById("textTermina").style.display = "none";
@@ -127,7 +123,6 @@
             for (var i = 0; i < $scope.elementos.length + 1; i++) {
                 for (var j = 0; j < 5; j++) {
                     if ($("#select" + i + j).val() != "") { count = count + 1; }
-                    //if ($("#select" + i + j).val() == "Otro") { if ($("#textOtro" + i + j).val()=="") return "otro" }
                 }
             }
             if (count > 0) { return true; }

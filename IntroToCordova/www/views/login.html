@@ -31,8 +31,8 @@
                     </div>
                     <select id="Area" ng-model="Area" class="form-control" required>
                         <option value="" hidden>Area</option>
-                        <option value="Hospitalizado">Hospitalizado</option>
-                        <option value="Urgencias">Urgencias</option>
+                        <option value="HOSPITALIZADO">Hospitalizado</option>
+                        <option value="URGENCIAS">Urgencias</option>
                     </select>
                 </div>
                 <!--Cartel explicativo-->
@@ -57,25 +57,25 @@
                     <input id="FechaNac" type="date" class="form-control" placeholder="Fecha de Nacimiento" required>
                 </div>
                 <!--Elemento Habitacion (if Hospitalizado) del formulario-->
-                <div ng-if="Area =='Hospitalizado' " class="form-group input-group">
+                <div ng-if="Area =='HOSPITALIZADO' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
                     </div>
                     <input id="Hab" name="" class="form-control" placeholder="Nº de habitación" type="text" required>
                 </div>
                 <!--Elemento Genero (if Urgencias) del formulario-->
-                <div ng-if="Area =='Urgencias' " class="form-group input-group">
+                <div ng-if="Area =='URGENCIAS' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-venus-mars" style="margin-right:10px"></i> </span>
                     </div>
                     <select id="Genero" class="form-control" required>
                         <option value="" hidden>Género</option>
-                        <option>Varon</option>
-                        <option>Mujer</option>
+                        <option value="0">Varon</option>
+                        <option value="1">Mujer</option>
                     </select>
                 </div>
                 <!--Elemento Temporal  del formulario-->
-                <div ng-if="Area != 'Urgencias' && Area != 'Hospitalizado' " class="form-group input-group">
+                <div ng-if="Area != 'URGENCIAS' && Area != 'HOSPITALIZADO' " class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building" style="margin-right:10px"></i> </span>
                     </div>

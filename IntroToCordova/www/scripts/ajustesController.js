@@ -9,12 +9,7 @@
             if (localStorage.getItem('signedIn') != 'Yes') { window.location.href = "index.html#!/login"; }
         });
         
-        $scope.checklog = function () {
-            console.log("hu");
-            if (localStorage.getItem('signedIn') != 'Yes') {
-                window.location.href = "index.html#!/login";
-            }
-        }
+     
         //Esta función se encarga de hacer desaparecer y aparecer los DETALLES de los apartados
         $scope.toggleajustes = function (index) {
             var nombreclase = "ajustes" + index;
@@ -55,7 +50,6 @@
             $('modalId').modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
-
         }
 
     };
