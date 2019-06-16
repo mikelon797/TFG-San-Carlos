@@ -33,7 +33,7 @@
                     processData: false,
                     success: function (data) {
                         if (data.status == 'KO') {
-                            alert("Ya se ha enviado este incidente");
+                            alert("Ya se ha enviado correctamente el incidente");
                         }
                         if (data.status == 'OK') {
                             console.log(data);

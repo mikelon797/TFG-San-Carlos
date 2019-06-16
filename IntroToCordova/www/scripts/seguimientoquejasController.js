@@ -45,8 +45,11 @@
             this.fecha = fecha;
             if (informed == 1) { this.informed = "Sí" }
             if (informed == 0) { this.informed = "No" }
+            if (informed == null) { this.informed = "No" }
             if (closed == 1) { this.closed = "Sí" }
             if (closed == 0) { this.closed = "No" }
+            if (informed == null) { this.closed = "No" }
+
         }
 
         function createIncidents(data) {

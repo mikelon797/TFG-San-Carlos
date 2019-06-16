@@ -169,7 +169,7 @@
         var dieta1 = new dieta(0,"Jovenes", "",m1, m2,m3);
         var dieta2 = new dieta(1,"Persona mayor","", p1, p2);
 
-        //En esta variable de almacenan todos los bloques y preguntas
+        //En esta variable de almacenan todos los bloques y opciones
         $scope.elementos = [dieta1, dieta2];
 
         $scope.sendService = function () {

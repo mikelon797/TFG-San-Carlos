@@ -38,8 +38,6 @@
             
         }
 
-       
-
         function loginAjax(Area, Apellido, Hab, Genero, fechaNac, Perfil) {
             if (Area=="HOSPITALIZADO") {
                 var datos = {"area": Area,"apellido":Apellido,"fechanac":fechaNac,"habitacion":Hab};
@@ -61,6 +59,10 @@
                         else {
                             console.log(data);
                         }
+                    },
+                    error: function (b) {
+                        console.log(b);
+                        alert("Se ha producido un error, compruebe su conexión a internet");
                     }
                 });
             }

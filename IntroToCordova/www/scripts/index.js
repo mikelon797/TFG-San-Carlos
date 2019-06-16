@@ -37,10 +37,32 @@
     //    //    }
     //    //}
        
-
+    //function sendNotification(notification) {
+    //    var datos = { "userid": localStorage.getItem('user_id'), "questions": notification.title, "answer": notification.answer };
+    //    console.log(datos);
+    //    $.ajax({
+    //        url: "http://138.100.72.88/hsc/notifications/sendnotification.php",
+    //        type: "POST",
+    //        dataType: 'json',
+    //        data: JSON.stringify(datos),
+    //        success: function (data) {
+    //            if (data.status == 'KO') {
+    //                alert("algo ha salido mal");
+    //            }
+    //            if (data.status == 'OK') {
+    //                console.log(data);
+    //                return true;
+    //            }
+    //            else {
+    //                console.log(data);
+    //            }
+    //        }
+    //    });
+    //}
 
     //});
 
+   
 
     //function onDeviceReady() {
     //    // Handle the Cordova pause and resume events
