@@ -12,7 +12,7 @@
   <access origin="*" />
   <!-- SplashScreen-->
   <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="1000" />
+  <preference name="SplashScreenDelay" value="3000" />
   <preference name="SplashShowOnlyFirstTime" value="true" />
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->

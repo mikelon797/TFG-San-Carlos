@@ -22,6 +22,30 @@
             this.index = index;
         }
 
+        function sendincidentAjax(user, hosporeme, titulo, otro) {
+            var datos = { "userid": user, "hosporeme": hosporeme, "title": titulo, "other": otro };
+            console.log(datos);
+                $.ajax({
+                    url: "http://138.100.72.88/hsc/incidents/sendincident.php",
+                    type: "POST",
+                    dataType: 'json',
+                    data: JSON.stringify(datos),
+                    processData: false,
+                    success: function (data) {
+                        if (data.status == 'KO') {
+                            alert("Ya se ha enviado este incidente");
+                        }
+                        if (data.status == 'OK') {
+                            console.log(data);
+                            return true;
+                        }
+                        else {
+                            console.log(data);
+                        }
+                    }
+                });
+        }
+
         //Creo las preguntas y bloques
         var a1 = new pregunta("Medicamentos", "11", "o10", "o20", "Otro");
         var a2 = new pregunta("Asistencia", "12", "o11", "o21", "Otro");
@@ -97,6 +121,13 @@
 
         //Se encarga de enviar la queja, redireccionar y quitar el "fade"
         $scope.sendQueja = function () {
+            var user = localStorage.getItem('user_id');
+            if (localStorage.getItem('Area') == 'HOSPITALIZADO') { var hosporeme = 0; }
+            if (localStorage.getItem('Area') == 'URGENCIAS') { var hosporeme = 1; }
+            var titulo = $scope.selectedIncident; 
+            var otro = '';
+            if (titulo.includes('Otro')) { console.log("tiene otro"); var otro = $scope.textOtro;}
+            sendincidentAjax(user, hosporeme, titulo, otro);
             //Añadir enviar base de datos
             window.location.href = "index.html#!/main";
             $('modalId').modal('hide');
@@ -104,17 +135,27 @@
             $('.modal-backdrop').remove();
         }
 
+       
+        $(document).ready(function () {
+            $('body').delegate('.textareaotro', 'keyup change', function () {
+                $scope.textOtro = this.value;
+            });
+        });
+        
    
         //Cuando cambia alguna opción comprueba si puede activar el boton de enviar
         $(document).ready(function () {
             $("select").change(function () {
-                
+                $scope.selectedIncident = this.value;
+                console.log($scope.selectedIncident);
                 if ($scope.validateForm()) {
                     document.getElementById("#boton-enviar").disabled = false;
                     document.getElementById("textTermina").style.display = "none";
                 }
                 
             });
+            
+
         });
         
         //Valida que se haya elejido alguna queja

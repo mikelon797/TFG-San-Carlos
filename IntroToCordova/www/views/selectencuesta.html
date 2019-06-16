@@ -3,7 +3,7 @@
 
 <div id="selectencuesta" >
     <ul class="list-group">
-        <button ng-repeat="encuesta in elementos " ng-click="displaySurvey(encuesta.json)" type="button" 
+        <button ng-repeat="encuesta in elementos " ng-click="displaySurvey(encuesta.json);selectSurveyModel(encuesta.survey_model)" type="button" 
                 class="list-group-item list-group-item-action active" style="margin-top:1%; background-color:dodgerblue">
             {{encuesta.titulo}}
         </button>

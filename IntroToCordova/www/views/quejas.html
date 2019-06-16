@@ -32,12 +32,12 @@
                         </div>
                         <select id="select{{bloque.index}}{{$index}}" class="form-control" ng-model="pregunta.id">
                             <option ng-selected="1" value="" hidden>Seleccione una opción</option>
-                            <option ng-repeat="opcion in pregunta.opciones" value="{{opcion}}">{{opcion}}</option>
+                            <option ng-repeat="opcion in pregunta.opciones" value="{{pregunta.titulo}} {{opcion}}">{{opcion}}</option>
                         </select>
                     </div>
                     <!-- Si se selecciona la opcion otro aparece un campo para escribir -->
-                    <div ng-if="pregunta.id == 'Otro'" style="width:70%;margin: 0 auto">
-                        <textarea style="  display: inline-block;" id="textOtro{{bloque.index}}{{$index}}" rows="4" cols="30" required placeholder="Especifique aqui su queja."></textarea>
+                    <div ng-if="pregunta.id.includes('Otro')" style="width:70%;margin: 0 auto">
+                        <textarea class="textareaotro"   style="  display: inline-block;" id="textOtro{{bloque.index}}{{$index}}" rows="4" cols="30" required placeholder="Especifique aqui su queja."></textarea>
                     </div>
                 </div>
 
@@ -76,5 +76,4 @@
 </div>
 
 <canvas></canvas>
-
 

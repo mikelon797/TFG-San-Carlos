@@ -1,20 +1,27 @@
 ﻿<h4 id="titulo" style=" margin:1%">Seguimiento de servicios</h4>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th  style="font-size:small" scope="col">Fecha</th>
-            <th  style="font-size:small" scope="col">Servicio</th>
-            <th  style="font-size:small" scope="col">Informado</th>
-            <th  style="font-size:small" scope="col">Cerrado</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="item in elementos">
-            <td  style="font-size:small">{{item.fecha}}</td>
-            <th  style="font-size:small">{{item.servicio}}</th>
-            <td  style="font-size:small">{{item.informed}}</td>
-            <td  style="font-size:small">{{item.closed}}</td>
-        </tr>
-       
-    </tbody>
-</table>
+<div id="tablaservicios">
+    <script>
+        console.log('reload');
+    </script>
+    <table id="tablaservicios" class="table table-striped">
+
+        <thead>
+            <tr>
+                <th style="font-size:small" scope="col">Fecha</th>
+                <th style="font-size:small" scope="col">Servicio</th>
+                <th style="font-size:small" scope="col">Informado</th>
+                <th style="font-size:small" scope="col">Cerrado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in elementos">
+                <td style="font-size:small">{{item.fecha}}</td>
+                <th style="font-size:small">{{item.servicio}}</th>
+                <td style="font-size:small">{{item.informed}}</td>
+                <td style="font-size:small">{{item.closed}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div id="prueba"></div>

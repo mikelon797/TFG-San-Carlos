@@ -38,7 +38,7 @@
             <div id="bloquePeluqueria" style="display:none;">
                 <canvas height="15%"></canvas>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textPeluqueria" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textPeluqueria" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueBiblioteca" style="display:none;">
@@ -57,25 +57,25 @@
                     </select>
                 </div>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textBiblioteca" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textBiblioteca" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueQuiosco" style="display:none;">
                 <canvas height="15%"></canvas>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textQuiosco" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textQuiosco" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueAsistencia" style="display:none;">
                 <canvas height="15%"></canvas>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textAsistencia" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textAsistencia" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueVoluntariado" style="display:none;">
                 <canvas height="15%"></canvas>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textVoluntariado" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textVoluntariado" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueDieta" style="display:none;">
@@ -98,13 +98,13 @@
                             </div>
                             <select id="OpcionElegida{{$index}}" class="form-control">
                                 <option ng-selected="1" value="" hidden>Seleccione una opción</option>
-                                <option ng-repeat="opcion in dieta.opciones" value="{{opcion.index}}">{{opcion.nombreOpcion}}</option>
+                                <option ng-repeat="opcion in dieta.opciones" value="{{opcion.nombreOpcion}}">{{opcion.nombreOpcion}}</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div style="width:90%;margin: 0 auto">
-                    <textarea id="textDieta" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
+                    <textarea class="textareaotro" id="textDieta" rows="4" cols="35" placeholder="Especifique aqui los detalles"></textarea>
                 </div>
             </div>
             <div id="bloqueEnviar" class="form-group" style="display:none">

@@ -111,6 +111,40 @@
             });
         });
 
+        function sendServiceAjax(user, servicio, genero, dieta, texto) {
+            //data '{"userid":"9","type_of_service":"Biblioteca","genre_library":"Historia", "text_info": "Texto 
+            if (servicio == 'Biblioteca') {
+                var datos = { "userid": user, "type_of_service": servicio, "genre_library": genero, "text_info": texto };
+            }
+            else if (servicio == 'Dieta') {
+                var datos = { "userid": user, "type_of_service": servicio, "option_diet": dieta, "text_info": texto };
+            }
+            else {
+                var datos = { "userid": user, "type_of_service": servicio,  "text_info": texto};
+            }
+
+            console.log(datos);
+            $.ajax({
+                url: "http://138.100.72.88/hsc/services/sendservice.php",
+                type: "POST",
+                dataType: 'json',
+                data: JSON.stringify(datos),
+                processData: false,
+                success: function (data) {
+                    if (data.status == 'KO') {
+                        alert("Ya se ha enviado este incidente");
+                    }
+                    if (data.status == 'OK') {
+                        console.log(data);
+                        return true;
+                    }
+                    else {
+                        console.log(data);
+                    }
+                }
+            });
+        }
+
         //Clase opcion
         var opcion = function (index,nombreOpcion, info) {
             this.nombreOpcion = nombreOpcion;
@@ -132,13 +166,22 @@
         var p2 = new opcion(1,"Puré", "Puré verduras  <br/> Yogurt natural")
 
         var dietaNone = new dieta(0, "","",new opcion("", ""));
-        var dieta1 = new dieta(0,"Modernez", "",m1, m2,m3);
+        var dieta1 = new dieta(0,"Jovenes", "",m1, m2,m3);
         var dieta2 = new dieta(1,"Persona mayor","", p1, p2);
 
         //En esta variable de almacenan todos los bloques y preguntas
         $scope.elementos = [dieta1, dieta2];
+
         $scope.sendService = function () {
-            
+            var servicio = $("#ServicioSeleccionado").val();
+            var user = localStorage.getItem('user_id');
+            var dieta = '';
+            var genero = '';
+            if ($("#DietaElegida").val() == 0) { dieta = $("#OpcionElegida0").val()}
+            if ($("#DietaElegida").val() == 1) { dieta = $("#OpcionElegida1").val() }
+            if ($("#ServicioSeleccionado").val() == 'Biblioteca') { genero = $("#Genero").val() }
+            var texto = $scope.textOtro;
+            sendServiceAjax(user, servicio, genero,dieta, texto);
             console.log($("#ServicioSeleccionado").val());
             //Hacer parte de enviar a la base de datos
             window.location.href = "index.html#!/main";
@@ -146,7 +189,12 @@
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
         }
-        
+
+        $(document).ready(function () {
+            $('body').delegate('.textareaotro', 'keyup change', function () {
+                $scope.textOtro = this.value;
+            });
+        });
 
 
     };
