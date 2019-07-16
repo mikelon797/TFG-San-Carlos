@@ -4,53 +4,70 @@
 
     var selectencuestaController = function ($scope) {
 
-        
+        var online = false;
 
         function getSurveys() {
-            var datos = {};
-            console.log(datos);
-            $.ajax({
-                url: "http://138.100.72.88/hsc/surveymodels/getsurveymodels.php",
-                type: "POST",
-                dataType: 'json',
-                data: JSON.stringify(datos),
-                processData: false,
-                success: function (data) {
-                    console.log(data);
-                    if (data.status == 'KO') {
-                        alert("algo ha salido mal");
-                    }
-                    else if (data.status == 'OK') {
+            if (online == true) {
+                var datos = {};
+                console.log(datos);
+                $.ajax({
+                    url: "http://138.100.72.88/hsc/surveymodels/getsurveymodels.php",
+                    type: "POST",
+                    dataType: 'json',
+                    data: JSON.stringify(datos),
+                    processData: false,
+                    success: function (data) {
                         console.log(data);
-                        var elementosenviar = createSurveys(data);
-                        console.log(elementosenviar);
-                        $scope.$apply(function () {
-                            $scope.elementos = elementosenviar;
-                            console.log('yoppp');
-                            console.log($scope.elementos);
-                        });
+                        if (data.status == 'KO') {
+                            alert("algo ha salido mal");
+                        }
+                        else if (data.status == 'OK') {
+                            console.log(data);
+                            var elementosenviar = createSurveys(data);
+                            console.log(elementosenviar);
+                            $scope.$apply(function () {
+                                $scope.elementos = elementosenviar;
+                                console.log('yoppp');
+                                console.log($scope.elementos);
+                            });
 
-                        return elementosenviar;
+                            return elementosenviar;
+                        }
+                        else {
+                            console.log(data);
+                        }
                     }
-                    else {
-                        console.log(data);
-                    }
-                }
-            });
+                });
+            }
+            else {
+                var surveyJSON = {pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué le parecen nuestras instalaciones?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "item1", text: "Sí" }, { value: "item2", text: "No" }, { value: "item3", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas Gracias por compartir su opinión</h4>" };
+                var surveyJSON2 = { pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué opinión le merecen nuestras instalaciones? (v2)", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "Si", text: "Sí" }, "No", { value: "Que", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas gracias por compartir su opinión</h4>" };
+                var surveyJSONselected = null;
+
+                //Creo las preguntas y bloques
+                var encuesta1 = new encuesta("Encuesta General",1, surveyJSON);
+                var encuesta2 = new encuesta("Encuesta sobre las Instalaciones",2, surveyJSON2);
+                var encuesta3 = new encuesta("Encuesta sobre su Experiencia",1, surveyJSON2);
+                var encuesta4 = new encuesta("Encuesta de Servicio",2, surveyJSON2);
+
+                $scope.elementos = [encuesta1, encuesta2, encuesta3, encuesta4];
+                return $scope.elementos;
+            }
+           
         }
 
         //Clase Encuesta
         var encuesta = function (titulo,survey_model, json) {
             this.titulo = titulo;
             this.survey_model = survey_model;
-            this.json = JSON.stringify(json);
+            this.json =json;
         }
 
         function createSurveys(data) {
             console.log(data);
             var elementoss = [];
             data.data.forEach(function (element) {
-                var encuestaux = new encuesta(element.tittle, element.survey_model_id, element.survey);
+                var encuestaux = new encuesta(element.tittle, element.survey_model_id,element.survey);
                 elementoss.push(encuestaux);
             });
             $scope.elementos = elementoss;
@@ -63,10 +80,9 @@
         console.log('pp');
         console.log($scope.elementos);
         
-        var surveyJSON = {
-            pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué le parecen nuestras instalaciones?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "item1", text: "Sí" }, { value: "item2", text: "No" }, { value: "item3", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas Gracias por compartir su opinión</h4>" };
-        var surveyJSON2 = { pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué opinión le merecen nuestras instalaciones? (v2)", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "Si", text: "Sí" }, "No", { value: "Que", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas gracias por compartir su opinión</h4>" };
-        var surveyJSONselected = null;
+        //var surveyJSON = {pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué le parecen nuestras instalaciones?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "item1", text: "Sí" }, { value: "item2", text: "No" }, { value: "item3", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas Gracias por compartir su opinión</h4>" };
+        //var surveyJSON2 = { pages: [{ name: "page1", elements: [{ type: "rating", name: "Pregunta Nº 1", title: "¿Qué opinión le merecen nuestras instalaciones? (v2)", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question1", title: "¿Cúal es su opinión respecto a nuestro servicio?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question2", title: "¿Qué opina usted de la cafetería?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }, { type: "rating", name: "question3", title: "¿Cómo definiría la velocidad de atención?", isRequired: true, minRateDescription: "Mal", maxRateDescription: "Genial" }] }, { name: "page2", elements: [{ type: "checkbox", name: "question4", title: "¿Se ha leido usted lo anterior?", choices: [{ value: "Si", text: "Sí" }, "No", { value: "Que", text: "¿Qué?" }] }] }], completedHtml: "<h4>Muchas gracias por compartir su opinión</h4>" };
+        //var surveyJSONselected = null;
 
         ////Creo las preguntas y bloques
         //var encuesta1 = new encuesta("Encuesta General",1, surveyJSON);
@@ -88,7 +104,7 @@
              
         function sendDataToServer(survey) {
             survey.sendResult('18b64521-dced-4f6f-a0a4-08de1edc0faf');
-            alert("The results are:" + JSON.stringify(survey.data));
+            console.log("The results are:" + JSON.stringify(survey.data));
             sendSurveyAjax(survey);
         }
 
@@ -120,8 +136,12 @@
             });
         }
 
-        $scope.displaySurvey = function (survey) {
-            var surveyJSONsent = JSON.parse(survey);
+        $scope.displaySurvey = function (surveyget) {
+
+           //a la hora de recibir los JSON del servidor da error al parsearlo, por eso al principio hay un booleano 'online'
+
+            //var surveyJSONsent = JSON.parse(surveyget);
+            surveyJSONsent = surveyget;
             document.getElementById("surveyContainer").style.display = "block";
             document.getElementById("selectencuesta").style.display = "none";
             document.getElementById("titulo").style.display = "none";
@@ -139,3 +159,5 @@
     app.controller("selectencuestaController", selectencuestaController);
 
 }());
+
+
